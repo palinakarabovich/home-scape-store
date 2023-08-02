@@ -7,7 +7,7 @@ const Intro = () => {
         Make your homeplace unique
       </h2>
       <p className={styles.description}>
-        Canny store is an online store of designer furniture and home accessories.
+        HomeScape store is an online store of designer furniture and home accessories.
         We sell beautiful stylish items, such as handmade crafted dishes, modern furniture, artisanal lighting, and much more.
       </p>
     </section>

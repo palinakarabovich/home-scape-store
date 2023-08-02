@@ -3,6 +3,7 @@ import CategoriesPreview from '../../components/CategoriesPreview/CategoriesPrev
 import Intro from '../../components/Intro/Intro';
 import ProductsPreview from '../../components/ProductsPreview/ProductsPreview';
 import Slider from '../../components/Slider/Slider';
+import Subscription from '../../components/Subscription/Subscription';
 import styles from './Main.module.css'
 
 const MainPage = () => {
@@ -13,6 +14,7 @@ const MainPage = () => {
       <CategoriesPreview />
       <ProductsPreview type={productTypes.furniture} />
       <ProductsPreview type={productTypes.accessories} />
+      <Subscription />
     </div>
   );
 }
