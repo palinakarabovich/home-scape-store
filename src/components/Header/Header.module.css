@@ -1,0 +1,49 @@
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.nav{
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.link{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link_active{
+  color: rgba(255,0,0);
+}
+
+.cart{
+  position: relative;
+}
+
+.icon{
+  width: 70px;
+  height: 70px;
+}
+
+.quantity{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-color: rgba(255,0,0);
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  top: 30px;
+  left: 0;
+}
