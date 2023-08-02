@@ -67,7 +67,7 @@ const productsData: Array<IProductsData> = [
       },
       {
         name: 'Handcrafted lamp',
-        description: 'd lamp. Sapele hardwood and Lancashire wool.',
+        description: 'Zoe Darlington handcrafted lamp. Sapele hardwood and Lancashire wool.',
         price: 250,
         discount: 0,
         subcategory: 'lamp',

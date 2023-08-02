@@ -1,0 +1,1 @@
+export const countPriceWithDiscount = (price: number, discount: number) => price/100 * (100 - discount)

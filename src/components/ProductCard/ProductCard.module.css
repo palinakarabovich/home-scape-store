@@ -1,0 +1,89 @@
+.card{
+  max-width: 30%;
+  position: relative;
+  cursor: pointer;
+}
+
+.badge{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgb(255,41,50);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  border-radius: 50%;
+}
+
+.percentage{
+  font-size: 20px;
+  margin: 0;
+  font-weight: 300;
+}
+
+.image{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 20px;
+  transition: transform ease-in-out .3s;
+}
+
+.image:hover{
+  transform: scale(1.05);
+}
+
+.title{
+  font-size: 20px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.description{
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.price{
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.number{
+  margin: 0;
+}
+
+.number_with_discount{
+  text-decoration: line-through;
+  color: #BBB
+}
+
+.discount{
+  margin: 0;
+}
+
+.button{
+  background-color: #000;
+  border-radius: 5px;
+  padding: 10px 15px;
+  border: none;
+  color: #FFF;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 15px;
+  transition: background-color ease-in-out .3s;
+  cursor: pointer;
+}
+
+.button:hover{
+  background-color: rgb(255,41,50);
+}
+

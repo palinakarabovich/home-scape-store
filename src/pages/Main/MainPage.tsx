@@ -11,8 +11,8 @@ const MainPage = () => {
       <Slider />
       <Intro />
       <CategoriesPreview />
-      <ProductsPreview type={productTypes.accessories} />
       <ProductsPreview type={productTypes.furniture} />
+      <ProductsPreview type={productTypes.accessories} />
     </div>
   );
 }

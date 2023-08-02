@@ -22,7 +22,7 @@
 }
 
 .link_active{
-  color: rgba(255,0,0);
+  color: rgb(255,41,50);;
 }
 
 .cart{
@@ -38,7 +38,7 @@
   width: 30px;
   height: 30px;
   position: absolute;
-  background-color: rgba(255,0,0);
+  background-color: rgb(255,41,50);;
   color: #FFF;
   display: flex;
   align-items: center;
