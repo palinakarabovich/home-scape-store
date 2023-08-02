@@ -12,14 +12,14 @@ const Header = () => {
         <a className={styles.link}>About</a>
         <a className={styles.link}>Contacts</a>
       </nav>
-      <a className={`${styles.link} ${styles.cart}`}>
+      <div className={styles.cart}>
         <div className={styles.icon}>
           {cartIcon}
         </div>
         <div className={styles.quantity}>
           2
         </div>
-      </a>
+      </div>
     </header>
   );
 };
