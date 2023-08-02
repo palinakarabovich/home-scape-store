@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './App.module.css'
 import Header from '../Header/Header';
-import Slider from '../Slider/Slider';
+import MainPage from '../../pages/Main/MainPage';
 
 const App = () => {
   return (
     <div className={styles.app}>
       <Header />
-      <Slider />
+      <MainPage />
     </div>
   );
 }
