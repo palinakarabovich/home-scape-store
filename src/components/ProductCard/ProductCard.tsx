@@ -26,12 +26,12 @@ const ProductCard: React.FC<IProduct> = ({ name, description, price, discount, i
       </p>
       <div className={styles.price}>
         <p className={`${styles.number} ${discount > 0 ? styles.number_with_discount : ''}`}>
-          ${price}
+        €{price}
         </p>
         {
           discount !== 0 &&
           <p className={styles.discount}>
-            ${countPriceWithDiscount(price, discount)}
+            €{countPriceWithDiscount(price, discount)}
           </p>
         }
       </div>
