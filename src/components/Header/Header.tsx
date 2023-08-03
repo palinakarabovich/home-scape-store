@@ -2,25 +2,27 @@ import React from 'react';
 import styles from './Header.module.css';
 import { cartIcon } from '../../utils/icons';
 import categories from '../../assets/categories';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <a className={`${styles.link} ${styles.link_active}`}>SALE</a>
+        <Link to='/sale' className={`${styles.link} ${styles.link_active}`}>SALE</Link>
+        <Link className={styles.link} to='/'>Home</Link>
         <div className={styles.catalog}>
           <a className={styles.link}>Catalog</a>
           <ul className={styles.categories}>
           <li className={styles.category}>
-          <a className={styles.link}>ALL</a>
+          <Link to='/all' className={styles.link}>ALL</Link>
           </li>
               {categories.map((c) => (
                 <li className={styles.category}>
-                  <a className={styles.link}>{c.name}</a>
+                  <Link to={c.url} className={styles.link}>{c.name.toLocaleUpperCase()}</Link>
                   <ul className={styles.subcategories}>
-                    {c.subcategories.map((sub) => (
+                    {c.subcategories?.map((sub) => (
                       <li className={styles.subcategory}>
-                        <a className={styles.link}>{sub}</a>
+                        <Link to={sub.url} className={styles.link}>{sub.name.toLowerCase()}</Link>
                       </li>
                     ))}
                   </ul>

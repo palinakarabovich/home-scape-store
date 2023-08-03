@@ -1,16 +1,14 @@
-import { IProductsData } from "../@types/types";
+import { IProduct } from "../@types/types";
 
-const productsData: Array<IProductsData> = [
-  {
-    category: 'Furniture',
-    products: [
+const productsData: Array<IProduct> = [
       {
         name: 'White coffee table',
         description: 'A small modern lightweight coffee table by no.design assembles with just one screw.',
         price: 980,
         discount: 0,
         subcategory: 'table',
-        image: 'https://static.tildacdn.com/tild6435-3461-4939-b535-383930343335/23737188794_0fef211af7_o.jpg'
+        image: 'https://static.tildacdn.com/tild6435-3461-4939-b535-383930343335/23737188794_0fef211af7_o.jpg',
+        category: 'furniture',
       },
       {
         name: 'Wooden display case',
@@ -18,7 +16,8 @@ const productsData: Array<IProductsData> = [
         price: 2000,
         discount: 40,
         subcategory: 'stand',
-        image: 'https://static.tildacdn.com/tild3133-6363-4531-b861-303039316461/24822288895_7701e533ae_o.jpg'
+        image: 'https://static.tildacdn.com/tild3133-6363-4531-b861-303039316461/24822288895_7701e533ae_o.jpg',
+        category: 'furniture',
       },
       {
         name: 'Serving table',
@@ -26,7 +25,8 @@ const productsData: Array<IProductsData> = [
         price: 680,
         discount: 0,
         subcategory: 'table',
-        image: 'https://static.tildacdn.com/tild6465-3231-4335-b161-666633663236/13945057356_831e53b049_o0.jpg'
+        image: 'https://static.tildacdn.com/tild6465-3231-4335-b161-666633663236/13945057356_831e53b049_o0.jpg',
+        category: 'furniture',
       },
       {
         name: 'Brass shelf',
@@ -34,7 +34,8 @@ const productsData: Array<IProductsData> = [
         price: 1860,
         discount: 20,
         subcategory: 'shelf',
-        image: 'https://static.tildacdn.com/tild3532-3732-4736-a662-303261306331/14249572112_b14bebc31e_o.jpg'
+        image: 'https://static.tildacdn.com/tild3532-3732-4736-a662-303261306331/14249572112_b14bebc31e_o.jpg',
+        category: 'furniture',
       },
       {
         name: 'Armchair',
@@ -42,7 +43,8 @@ const productsData: Array<IProductsData> = [
         price: 500,
         discount: 0,
         subcategory: 'chair',
-        image: 'https://static.tildacdn.com/tild3536-6162-4031-a436-383731383665/9501598060_379eeebcca_o.jpg'
+        image: 'https://static.tildacdn.com/tild3536-6162-4031-a436-383731383665/9501598060_379eeebcca_o.jpg',
+        category: 'furniture',
       },
       {
         name: 'Pastel tones sofa',
@@ -50,20 +52,17 @@ const productsData: Array<IProductsData> = [
         price: 800,
         discount: 0,
         subcategory: 'sofa',
-        image: 'https://static.tildacdn.com/tild6266-3562-4634-a436-306161323766/14611403598_fe01362e62_o.jpg'
+        image: 'https://static.tildacdn.com/tild6266-3562-4634-a436-306161323766/14611403598_fe01362e62_o.jpg',
+        category: 'furniture',
       },
-    ]
-  },
-  {
-    category: 'Accessories',
-    products: [
       {
         name: 'Flower pots set',
         description: 'Concrete planters by Vakodesign. Wood and ceramics. Set of two.',
         price: 200,
         discount: 25,
         subcategory: 'pot',
-        image: 'https://static.tildacdn.com/tild6463-3561-4237-b031-643265303737/19498481833_8d05a133e6_o.jpg'
+        image: 'https://static.tildacdn.com/tild6463-3561-4237-b031-643265303737/19498481833_8d05a133e6_o.jpg',
+        category: 'accessories',
       },
       {
         name: 'Handcrafted lamp',
@@ -71,7 +70,8 @@ const productsData: Array<IProductsData> = [
         price: 250,
         discount: 0,
         subcategory: 'lamp',
-        image: 'https://static.tildacdn.com/tild3939-3932-4863-a539-363764313163/10294284803_e87fd0cac6_o.jpg'
+        image: 'https://static.tildacdn.com/tild3939-3932-4863-a539-363764313163/10294284803_e87fd0cac6_o.jpg',
+        category: 'accessories',
       },
       {
         name: 'Ceramic vase',
@@ -79,7 +79,8 @@ const productsData: Array<IProductsData> = [
         price: 98,
         discount: 0,
         subcategory: 'vase',
-        image: 'https://static.tildacdn.com/tild3539-3934-4464-a461-646430643539/15420098632_b629a34134_o.jpg'
+        image: 'https://static.tildacdn.com/tild3539-3934-4464-a461-646430643539/15420098632_b629a34134_o.jpg',
+        category: 'accessories',
       },
       {
         name: 'Tiny planters',
@@ -87,7 +88,8 @@ const productsData: Array<IProductsData> = [
         price: 50,
         discount: 0,
         subcategory: 'pot',
-        image: 'https://static.tildacdn.com/tild3331-6432-4663-b434-663264346464/11272572093_692c4daf91_o.jpg'
+        image: 'https://static.tildacdn.com/tild3331-6432-4663-b434-663264346464/11272572093_692c4daf91_o.jpg',
+        category: 'accessories',
       },
       {
         name: 'Fiela Chandelier Light',
@@ -95,7 +97,8 @@ const productsData: Array<IProductsData> = [
         price: 230,
         discount: 0,
         subcategory: 'lamp',
-        image: 'https://static.tildacdn.com/tild6464-3937-4532-b635-303533636539/14411219350_b695860eae_o.jpg'
+        image: 'https://static.tildacdn.com/tild6464-3937-4532-b635-303533636539/14411219350_b695860eae_o.jpg',
+        category: 'accessories',
       },
       {
         name: 'Lightning',
@@ -103,10 +106,9 @@ const productsData: Array<IProductsData> = [
         price: 300,
         discount: 0,
         subcategory: 'lamp',
-        image: 'https://static.tildacdn.com/tild3264-3465-4033-b133-373831363830/22868575593_1266f58e1b_o.jpg'
+        image: 'https://static.tildacdn.com/tild3264-3465-4033-b133-373831363830/22868575593_1266f58e1b_o.jpg',
+        category: 'accessories',
       },
-    ]
-  },
 ]
 
 export default productsData;

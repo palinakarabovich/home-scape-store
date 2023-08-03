@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Footer.module.css'
 
 const Footer = () => {
@@ -5,7 +6,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.links}>
         <a className={styles.link}>About us</a>
-        <a className={styles.link}>Catalog</a>
+        <Link to='/all' className={styles.link}>Catalog</Link>
         <a className={styles.link}>Contacts</a>
       </div>
       <p className={styles.warning}>

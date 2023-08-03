@@ -22,17 +22,14 @@
   padding-top: 50px;
 }
 
-.button{
+.link{
   font-size: 20px;
-  font-family: inherit;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
   color: #BBB;
   margin-top: 50px;
   transition: color ease-in-out .3s;
+  text-decoration: none;
 }
 
-.button:hover{
+.link:hover{
   color: #000;
 }
