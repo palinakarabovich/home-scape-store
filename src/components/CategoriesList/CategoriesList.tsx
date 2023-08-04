@@ -6,16 +6,21 @@ import { ICategoriesListProps } from './types';
 const CategoriesList: React.FC<ICategoriesListProps> = ({ categories, subcategory, category }) => {
   return (
     <ul className={styles.categories}>
-      {categories.map((c) => (
-        <li className={styles.category}>
-          <Link to={`/${c}`} className={styles.link}>
+      {categories.map((c, index) => (
+        <Link
+          to={`/${c}`}
+          className={styles.link}
+          key={index}
+        >
+          <li className={styles.category}>
+
             {subcategory
-              ? `back to ${c}`
+              ? `to ${c}`
               : category && c === 'all'
-                ? `back to ${c}`
+                ? `to ${c} products`
                 : c}
-          </Link>
-        </li>
+          </li>
+        </Link>
       )
       )}
     </ul>

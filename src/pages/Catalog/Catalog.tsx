@@ -7,6 +7,8 @@ import React from 'react';
 import { ICatalog } from './types';
 import { ICategory, IProduct } from '../../@types/types';
 import { createCategoriesList } from '../../utils/createCategoriesList';
+import { Outlet, useLocation } from 'react-router-dom';
+import CategoriesPreview from '../../components/CategoriesPreview/CategoriesPreview';
 
 
 const Catalog: React.FC<ICatalog> = ({ type, category, subcategory }) => {
@@ -41,14 +43,19 @@ const Catalog: React.FC<ICatalog> = ({ type, category, subcategory }) => {
   return (
     <section className={styles.catalog}>
       <h2 className={styles.title}>
-        {type}
+        {type === 'all'
+          ? 'Catalog'
+          : type}
       </h2>
-      {categoriesList.length !== 0 &&
-        <CategoriesList
-          categories={categoriesList}
-          subcategory={subcategory}
-          category={category}
-        />
+      {
+        type === 'all'
+          ? <CategoriesPreview />
+          : categoriesList.length !== 0 &&
+          <CategoriesList
+            categories={categoriesList}
+            subcategory={subcategory}
+            category={category}
+          />
       }
       <ProductsList products={products} />
     </section>

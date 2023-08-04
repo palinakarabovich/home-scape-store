@@ -5,7 +5,8 @@ export interface IProduct {
   discount: number,
   subcategory: string,
   image: string,
-  category: string
+  category: string,
+  id: number
 }
 
 export interface ICategory {

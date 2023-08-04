@@ -1,7 +1,12 @@
 .card{
-  max-width: 30%;
+  width: 30%;
   position: relative;
   cursor: pointer;
+}
+
+.link{
+  text-decoration: none;
+  color: #000;
 }
 
 .badge{

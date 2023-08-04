@@ -13,25 +13,49 @@ const Header = () => {
         <div className={styles.catalog}>
           <a className={styles.link}>Catalog</a>
           <ul className={styles.categories}>
-          <li className={styles.category}>
-          <Link to='/all' className={styles.link}>ALL</Link>
-          </li>
-              {categories.map((c) => (
-                <li className={styles.category}>
-                  <Link to={c.url} className={styles.link}>{c.name.toLocaleUpperCase()}</Link>
-                  <ul className={styles.subcategories}>
-                    {c.subcategories?.map((sub) => (
-                      <li className={styles.subcategory}>
-                        <Link to={sub.url} className={styles.link}>{sub.name.toLowerCase()}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                  </li>
-              ))}
+            <li
+              className={styles.category}
+              key={'all'}
+            >
+              <Link to='/all' className={styles.link}>ALL</Link>
+            </li>
+            {categories.map((c) => (
+              <li
+                className={styles.category}
+                key={c.url}
+              >
+                <Link to={c.url} className={styles.link}>{c.name.toLocaleUpperCase()}</Link>
+                <ul className={styles.subcategories}>
+                  {c.subcategories?.map((sub) => (
+                    <li
+                      className={styles.subcategory}
+                      key={sub.url}
+                    >
+                      <Link
+                        to={sub.url}
+                        className={styles.link}
+                      >
+                        {sub.name.toLowerCase()}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
           </ul>
         </div>
-        <a className={styles.link}>About</a>
-        <a className={styles.link}>Contacts</a>
+        <Link
+          className={styles.link}
+          to='/about'
+        >
+          About us
+        </Link>
+        <Link
+          to='/contacts'
+          className={styles.link}
+        >
+          Contacts
+        </Link>
       </nav>
       <div className={styles.cart}>
         <div className={styles.icon}>

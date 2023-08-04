@@ -9,6 +9,7 @@ const productsData: Array<IProduct> = [
         subcategory: 'table',
         image: 'https://static.tildacdn.com/tild6435-3461-4939-b535-383930343335/23737188794_0fef211af7_o.jpg',
         category: 'furniture',
+        id: 1
       },
       {
         name: 'Wooden display case',
@@ -18,6 +19,7 @@ const productsData: Array<IProduct> = [
         subcategory: 'stand',
         image: 'https://static.tildacdn.com/tild3133-6363-4531-b861-303039316461/24822288895_7701e533ae_o.jpg',
         category: 'furniture',
+        id: 2
       },
       {
         name: 'Serving table',
@@ -27,6 +29,7 @@ const productsData: Array<IProduct> = [
         subcategory: 'table',
         image: 'https://static.tildacdn.com/tild6465-3231-4335-b161-666633663236/13945057356_831e53b049_o0.jpg',
         category: 'furniture',
+        id: 3
       },
       {
         name: 'Brass shelf',
@@ -36,6 +39,7 @@ const productsData: Array<IProduct> = [
         subcategory: 'shelf',
         image: 'https://static.tildacdn.com/tild3532-3732-4736-a662-303261306331/14249572112_b14bebc31e_o.jpg',
         category: 'furniture',
+        id: 4
       },
       {
         name: 'Armchair',
@@ -45,6 +49,7 @@ const productsData: Array<IProduct> = [
         subcategory: 'chair',
         image: 'https://static.tildacdn.com/tild3536-6162-4031-a436-383731383665/9501598060_379eeebcca_o.jpg',
         category: 'furniture',
+        id: 5
       },
       {
         name: 'Pastel tones sofa',
@@ -54,6 +59,7 @@ const productsData: Array<IProduct> = [
         subcategory: 'sofa',
         image: 'https://static.tildacdn.com/tild6266-3562-4634-a436-306161323766/14611403598_fe01362e62_o.jpg',
         category: 'furniture',
+        id: 6
       },
       {
         name: 'Flower pots set',
@@ -63,6 +69,7 @@ const productsData: Array<IProduct> = [
         subcategory: 'pot',
         image: 'https://static.tildacdn.com/tild6463-3561-4237-b031-643265303737/19498481833_8d05a133e6_o.jpg',
         category: 'accessories',
+        id: 7
       },
       {
         name: 'Handcrafted lamp',
@@ -72,6 +79,7 @@ const productsData: Array<IProduct> = [
         subcategory: 'lamp',
         image: 'https://static.tildacdn.com/tild3939-3932-4863-a539-363764313163/10294284803_e87fd0cac6_o.jpg',
         category: 'accessories',
+        id: 8
       },
       {
         name: 'Ceramic vase',
@@ -81,6 +89,7 @@ const productsData: Array<IProduct> = [
         subcategory: 'vase',
         image: 'https://static.tildacdn.com/tild3539-3934-4464-a461-646430643539/15420098632_b629a34134_o.jpg',
         category: 'accessories',
+        id: 9
       },
       {
         name: 'Tiny planters',
@@ -90,6 +99,7 @@ const productsData: Array<IProduct> = [
         subcategory: 'pot',
         image: 'https://static.tildacdn.com/tild3331-6432-4663-b434-663264346464/11272572093_692c4daf91_o.jpg',
         category: 'accessories',
+        id: 10
       },
       {
         name: 'Fiela Chandelier Light',
@@ -99,6 +109,7 @@ const productsData: Array<IProduct> = [
         subcategory: 'lamp',
         image: 'https://static.tildacdn.com/tild6464-3937-4532-b635-303533636539/14411219350_b695860eae_o.jpg',
         category: 'accessories',
+        id: 11
       },
       {
         name: 'Lightning',
@@ -108,6 +119,7 @@ const productsData: Array<IProduct> = [
         subcategory: 'lamp',
         image: 'https://static.tildacdn.com/tild3264-3465-4033-b133-373831363830/22868575593_1266f58e1b_o.jpg',
         category: 'accessories',
+        id: 12
       },
 ]
 
