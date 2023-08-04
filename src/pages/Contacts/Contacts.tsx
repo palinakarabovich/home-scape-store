@@ -1,6 +1,10 @@
-import styles from './Contacts.module.css'
+import React from 'react';
+import Map from '../../components/Map/Map';
+import styles from './Contacts.module.css';
+import { TPosition } from '../../@types/types';
 
 const Contacts = () => {
+
   return (
     <section className={styles.contacts}>
       <h2 className={styles.title}>
@@ -15,7 +19,7 @@ const Contacts = () => {
             Phone: +123 466 567 78
           </p>
           <p className={styles.block_text}>
-            Email: hello@company.com
+            Email: hello@homescape.com
           </p>
         </li>
         <li className={styles.block}>
@@ -35,7 +39,7 @@ const Contacts = () => {
           </p>
         </li>
       </ul>
-      MAP
+      <Map />
     </section>
   );
 }

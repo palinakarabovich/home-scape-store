@@ -1,3 +1,5 @@
+import { LatLngLiteral } from "leaflet";
+
 export interface IProduct {
   name: string,
   description: string,
@@ -14,4 +16,8 @@ export interface ICategory {
   url: string,
   image?: string,
   subcategories: Array<ICategory>
+}
+
+export type TPosition = {
+  coordinates: LatLngLiteral;
 }
