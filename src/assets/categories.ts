@@ -1,31 +1,31 @@
 import { ICategory } from "../@types/types";
 
-const categories: Array<ICategory>= [
+const categories= [
   {
     name: 'furniture',
     subcategories: [
       {
-        name: 'Table',
+        name: 'table',
         url: '/table',
         subcategories: []
       },
       {
-        name: 'Shelf',
+        name: 'shelf',
         url: '/shelf',
         subcategories: []
       },
       {
-        name: 'Chair',
+        name: 'chair',
         url: '/chair',
         subcategories: []
       },
       {
-        name: 'Sofa',
+        name: 'sofa',
         url: '/sofa',
         subcategories: []
       },
       {
-        name: 'Stand',
+        name: 'stand',
         url: '/stand',
         subcategories: []
       }
@@ -37,17 +37,17 @@ const categories: Array<ICategory>= [
     name: 'accessories',
     subcategories: [
       {
-        name: 'Vase',
+        name: 'vase',
         url: '/vase',
         subcategories: []
       },
       {
-        name: 'Pot',
+        name: 'pot',
         url: '/pot',
         subcategories: []
       },
       {
-        name: 'Lamp',
+        name: 'lamp',
         url: '/lamp',
         subcategories: []
       }

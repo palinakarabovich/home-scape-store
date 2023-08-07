@@ -8,7 +8,7 @@ const ProductsList: React.FC<IProductsListProps> = ({ products }) => {
 
   return (
     <div className={styles.products}>
-      {products.map((card) => (
+      {products?.map((card) => (
           <ProductCard {...card} key={card.id} />
       ))}
     </div>

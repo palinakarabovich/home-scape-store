@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div className={styles.app}>
       <Header />
-        <Router />
+      <Router />
       <Footer />
     </div>
   );

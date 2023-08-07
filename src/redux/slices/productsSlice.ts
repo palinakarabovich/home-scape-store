@@ -11,18 +11,16 @@ interface IInitialState {
 
 export interface IParams {
   query?: string,
-  type?: string
+  type: string
 }
 
 const initialState: IInitialState = {
-  products: {
-    furniture: [],
-    accessories: []
-  },
+  products: {},
   loading: {
-    status: false,
+    status: true,
+    success: false,
     error: false,
-    message: ''
+    message: '',
   }
 }
 
@@ -36,9 +34,9 @@ export const productsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
-      state.products.accessories = [];
-      state.products.furniture = [];
+      state.products= {};
       state.loading.status = true;
+      state.loading.success = false;
     });
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
       if(action.payload.type) {
@@ -47,8 +45,10 @@ export const productsSlice = createSlice({
         state.products['all'] = action.payload.productsData
       }
       state.loading.status = false;
+      state.loading.success = true;
     });
     builder.addCase(fetchProducts.rejected, (state, action) => {
+      state.loading.success = false;
       state.loading.status = false;
       state.loading.error = true;
       if(action.error.message){
@@ -60,7 +60,7 @@ export const productsSlice = createSlice({
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async (params : IParams) => {
   try {
-    const res = await fetch(`${PRODUCTS_URL}?${params.query && params.query}`);
+    const res = await fetch(`${PRODUCTS_URL}?${params.query}`);
     if (res.ok) {
       const productsData = await res.json();
       return {
@@ -74,6 +74,7 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async (p
     return Promise.reject(err);
   }
 })
+
 
 export const { setProducts } = productsSlice.actions;
 

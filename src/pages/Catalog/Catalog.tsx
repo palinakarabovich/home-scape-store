@@ -1,43 +1,27 @@
-import categories from '../../assets/categories';
 import styles from './Catalog.module.css'
-import productsData from '../../assets/products';
 import CategoriesList from '../../components/CategoriesList/CategoriesList';
 import ProductsList from '../../components/ProductsList/ProductsList';
 import React from 'react';
 import { ICatalog } from './types';
-import { ICategory, IProduct } from '../../@types/types';
-import { createCategoriesList } from '../../utils/createCategoriesList';
-import { Outlet, useLocation } from 'react-router-dom';
 import CategoriesPreview from '../../components/CategoriesPreview/CategoriesPreview';
-
+import { useAppSelector } from '../../hooks/useAppSelector';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { fetchProducts } from '../../redux/slices/productsSlice';
 
 const Catalog: React.FC<ICatalog> = ({ type, category, subcategory }) => {
 
-  const [products, setProducts] = React.useState<Array<IProduct>>([]);
-  const [categoriesList, setCategoriesList] = React.useState<Array<string>>([])
+  const [categoriesList, setCategoriesList] = React.useState<Array<string>>([]);
+  const { products, loading } = useAppSelector((store) => store.products);
+  const dispatch = useAppDispatch();
+
 
   React.useEffect(() => {
-    if (type === 'all') {
-      setProducts(productsData);
-    } else if (type === 'sale') {
-      setProducts(productsData.filter((p) => p.discount !== 0))
-    } else if (category) {
-      setProducts(productsData.filter((p) => p.category === type))
-    } else {
-      setProducts(productsData.filter((p) => p.subcategory === type))
-    }
+    const query = `${category ? `category=${type}` : subcategory ? `subcategory=${type}` : '' }` ;
+    dispatch(fetchProducts({ type, query }))
   }, [type])
 
   React.useEffect(() => {
-    if (type === 'all') {
-      setCategoriesList(createCategoriesList(products.map((p) => p.category)))
-    } else if (type === 'sale') {
-      setCategoriesList(createCategoriesList(products.map((p) => p.subcategory)))
-    } else if (category) {
-      setCategoriesList(['all', ...createCategoriesList(products.map((p) => p.subcategory))])
-    } else {
-      setCategoriesList(createCategoriesList(products.map((p) => p.category)))
-    }
+    
   }, [products])
 
   return (
@@ -57,7 +41,10 @@ const Catalog: React.FC<ICatalog> = ({ type, category, subcategory }) => {
             category={category}
           />
       }
-      <ProductsList products={products} />
+      {
+        loading.success && !loading.status ? <ProductsList products={products[type]} /> : <>Loading</>
+      }
+
     </section>
   );
 }

@@ -18,6 +18,14 @@ export interface ICategory {
   subcategories: Array<ICategory>
 }
 
+export interface ICategoryRoute {
+  name: string,
+  url: string,
+  image?: string,
+  subcategory: boolean,
+  category: boolean
+}
+
 export type TPosition = {
   coordinates: LatLngLiteral;
 }
@@ -25,7 +33,8 @@ export type TPosition = {
 export interface IDataLoading {
   status: boolean,
   error: boolean,
-  message: string
+  message: string,
+  success: boolean
 }
 
 export interface IRejectedActionPayload {

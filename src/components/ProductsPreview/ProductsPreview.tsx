@@ -11,24 +11,25 @@ import { fetchProducts } from '../../redux/slices/productsSlice';
 const ProductsPreview: React.FC<IProductPreviewProps> = ({ type }) => {
 
   const dispatch = useAppDispatch();
-  const { products, loading } = useAppSelector((store) => store.products)
+  const { products, loading } = useAppSelector((store) => store.products);
 
   React.useEffect(() => {
-    dispatch(fetchProducts({ query: `category=${type}`, type }))
+    const query = `category=${type}`;
+    dispatch(fetchProducts({ query, type }))
   }, [])
 
   return (
     <section className={styles.preview}>
       <h2 className={styles.title}>{type}</h2>
-      {!loading.status ?
+      {loading.success && !loading.status ?
         <div className={styles.products}>
           {
-            products[type].map((p, index) => index < 3 && (
+            products[type]?.map((p, index) => index < 3 && (
               <ProductCard key={index} {...p} />
             ))
           }
         </div>
-        : <p>Loading</p>
+        : <>Loading</>
       }
       <Link to={`/${type}`} className={styles.link}>
         More products &#8594;
