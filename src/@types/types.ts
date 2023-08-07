@@ -21,3 +21,15 @@ export interface ICategory {
 export type TPosition = {
   coordinates: LatLngLiteral;
 }
+
+export interface IDataLoading {
+  status: boolean,
+  error: boolean,
+  message: string
+}
+
+export interface IRejectedActionPayload {
+  message: string;
+  name: string;
+  stack?: string;
+}

@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer';
 import Router from '../../pages/Router';
 
 const App = () => {
+
   return (
     <div className={styles.app}>
       <Header />
