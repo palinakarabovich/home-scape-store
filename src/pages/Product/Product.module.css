@@ -1,0 +1,133 @@
+.product{
+  width: 80%;
+  margin: 0 auto;
+  gap: 20px;
+  padding: 50px 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.links{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.link{
+  text-decoration: none;
+  font-size: 15px;
+  color: #BBB;
+  text-transform: uppercase;
+  transition: color ease-in-out .3s;
+}
+
+.link:hover{
+color: #000;
+}
+
+.card{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 50px;
+}
+
+.slider{
+  width: 50%;
+}
+
+.description{
+  width: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.title{
+  font-size: 20px;
+  margin: 0;
+}
+
+.title_clickable{
+  cursor: pointer;
+}
+
+.text{
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.text_additional{
+  display: none;
+  cursor: pointer;
+}
+
+.text_additional_clicked{
+  display: block;
+  animation: slideup ease-in-out .3s;
+}
+
+@keyframes slideup {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+.image{
+  width: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+
+.price{
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.number{
+  margin: 0;
+}
+
+.number_with_discount{
+  text-decoration: line-through;
+  color: #BBB
+}
+
+.discount{
+  margin: 0;
+}
+
+.button{
+  background-color: #000;
+  border-radius: 5px;
+  padding: 10px 15px;
+  border: none;
+  color: #FFF;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 15px;
+  transition: background-color ease-in-out .3s;
+  cursor: pointer;
+}
+
+.button:hover{
+  background-color: rgb(255,41,50);
+}

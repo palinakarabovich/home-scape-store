@@ -1,7 +1,4 @@
-export interface IProductsData {
-  category: string,
-  products: Array<IProduct> | []
-}
+import { LatLngLiteral } from "leaflet";
 
 export interface IProduct {
   name: string,
@@ -9,5 +6,18 @@ export interface IProduct {
   price: number,
   discount: number,
   subcategory: string,
-  image: string
+  image: string,
+  category: string,
+  id: number
+}
+
+export interface ICategory {
+  name: string,
+  url: string,
+  image?: string,
+  subcategories: Array<ICategory>
+}
+
+export type TPosition = {
+  coordinates: LatLngLiteral;
 }

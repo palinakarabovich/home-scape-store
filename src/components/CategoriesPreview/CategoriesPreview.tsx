@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import categories from "../../assets/categories";
 import styles from './CategoriesPreview.module.css'
 
@@ -6,7 +7,8 @@ const CategoriesPreview = () => {
     <section className={styles.categories}>
       {
         categories.map((c, index) => (
-          <div
+          <Link
+            to={c.url}
             className={styles.card}
             style={{ backgroundImage: `url('${c.image}')` }}
             key={index}
@@ -14,7 +16,7 @@ const CategoriesPreview = () => {
             <p className={styles.name}>
               {c.name}
             </p>
-          </div>
+          </Link>
         ))
       }
     </section>

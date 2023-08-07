@@ -21,6 +21,7 @@
   text-decoration: none;
   cursor: pointer;
   transition: color ease-in-out .3s;
+  color: #000;
 }
 
 .link_active{
@@ -65,8 +66,8 @@
   display: none;
   list-style: none;
   margin: 0;
-  width: 200px;
-  padding: 20px 10px;
+  width: 250px;
+  padding: 20px;
   height: 150px;
   box-shadow: -5px 50px 37px -20px rgba(189,185,189,1);
   border-radius: 5px;
@@ -77,7 +78,7 @@
   animation: slideup ease-in-out .3s;
 }
 
-.category:hover {
+.category:hover > .link {
   color: rgb(255,41,50);
 }
 
@@ -90,7 +91,8 @@
   margin: 0;
   right: 0;
   top: 0;
-  padding: 20px 10px;
+  padding: 20px;
+  border-radius: 5px;
 }
 
 .category:hover > .subcategories{

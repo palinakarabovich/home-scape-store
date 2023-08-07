@@ -1,12 +1,28 @@
+import { Link } from 'react-router-dom';
 import styles from './Footer.module.css'
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.links}>
-        <a className={styles.link}>About us</a>
-        <a className={styles.link}>Catalog</a>
-        <a className={styles.link}>Contacts</a>
+        <Link
+          to='/about'
+          className={styles.link}
+        >
+          About us
+        </Link>
+        <Link
+          to='/all'
+          className={styles.link}
+        >
+          Catalog
+        </Link>
+        <Link
+          to='/contacts'
+          className={styles.link}
+        >
+          Contacts
+        </Link>
       </div>
       <p className={styles.warning}>
         HomeScape x 2023

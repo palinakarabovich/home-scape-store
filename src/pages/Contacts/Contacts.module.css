@@ -1,0 +1,40 @@
+.contacts{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title{
+  width: 100%;
+  text-align: center;
+  font-size: 100px;
+  font-weight: 700;
+  margin: 50px 0;
+}
+.information{
+  width: 70%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 30px;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 100px 0;
+}
+
+.block{
+  font-size: 20px;
+}
+
+.block_title{
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.block_text{
+  margin: 0;
+  line-height: 1.7;
+}

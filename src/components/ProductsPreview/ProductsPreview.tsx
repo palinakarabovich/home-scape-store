@@ -2,39 +2,32 @@ import React from 'react';
 import styles from './ProductsPreview.module.css'
 import { IProductPreviewProps } from './types';
 import productsData from '../../assets/products';
-import { IProductsData } from '../../@types/types';
+import { IProduct } from '../../@types/types';
 import ProductCard from '../ProductCard/ProductCard';
+import { Link } from 'react-router-dom';
 
-const initialState = {
-  category: '',
-  products: []
-
-}
 
 const ProductsPreview: React.FC<IProductPreviewProps> = ({ type }) => {
 
-  const [dataProducts, satDataProducts] = React.useState<IProductsData>(initialState);
+  const [dataProducts, satDataProducts] = React.useState<Array<IProduct>>([]);
 
   React.useEffect(() => {
-    satDataProducts(productsData[type] as IProductsData)
+    satDataProducts(productsData.filter((p) => p.category === type));
   }, [])
 
   return (
     <section className={styles.preview}>
-      <h2 className={styles.title}>{dataProducts.category}</h2>
+      <h2 className={styles.title}>{type}</h2>
       <div className={styles.products}>
         {
-          dataProducts.products.map((p, index) => index < 3 && (
+          dataProducts.map((p, index) => index < 3 && (
             <ProductCard key={index} {...p} />
           ))
         }
       </div>
-      <button
-        className={styles.button}
-        type='button'
-      >
+      <Link to={`/${type}`} className={styles.link}>
         More products &#8594;
-      </button>
+      </Link>
     </section>
   );
 }
