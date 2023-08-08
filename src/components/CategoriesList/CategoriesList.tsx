@@ -21,8 +21,10 @@ const CategoriesList: React.FC = () => {
     if (params) {
       setSelectedSubcategory(params);
       checkCategoryName();
+    } else {
+      setSelectedSubcategory('');
     }
-  }, [])
+  }, [searchParams])
 
   React.useEffect(() => {
     checkCategoryName();

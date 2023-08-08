@@ -20,6 +20,8 @@
   align-items: flex-start;
   justify-content: space-between;
   padding-top: 50px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .link{

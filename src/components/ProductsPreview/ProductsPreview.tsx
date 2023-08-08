@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { fetchProducts } from '../../redux/slices/productsSlice';
+import ProductCardSkeleton from '../ProductCardSkeleton/ProductCardSkeleton';
 
 
 const ProductsPreview: React.FC<IProductPreviewProps> = ({ type }) => {
@@ -29,7 +30,9 @@ const ProductsPreview: React.FC<IProductPreviewProps> = ({ type }) => {
             ))
           }
         </div>
-        : <>Loading</>
+        : <div className={styles.products}>
+          {[...new Array(3)].map((el) => <ProductCardSkeleton />)}
+        </div>
       }
       <Link to={`/${type}`} className={styles.link}>
         More products &#8594;
