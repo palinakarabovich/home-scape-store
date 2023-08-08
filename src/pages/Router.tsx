@@ -9,6 +9,15 @@ import React from "react";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { fetchCategories } from "../redux/slices/categoriesSlice";
 import { useAppSelector } from "../hooks/useAppSelector";
+import Loader from "../components/Loader/Loader";
+
+const loaderStyles = {
+  width: '100%',
+  height: '70vh',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+}
 
 const Router = () => {
 
@@ -20,30 +29,35 @@ const Router = () => {
   }, [])
 
   return (
-    <Routes>
-      <Route
-        path='/'
-        element={<MainPage />} />
-      {loading.success ?
-        categoriesRoutes.map((r) => (
-          <Route
-            path={r.url}
-            key={r.url}
-            element={<Catalog
-              type={r.name.toLowerCase()}
-            />
+    <>
+      {
+        loading.success && !loading.status
+          ? <Routes>
+            <Route
+              path='/'
+              element={<MainPage />} />
+            {categoriesRoutes.map((r) => (
+              <Route
+                path={r.url}
+                key={r.url}
+                element={<Catalog
+                  type={r.name.toLowerCase()}
+                />
+                }
+              >
+              </Route>
+            ))
             }
-          >
-
-          </Route>
-        ))
-        : <>Loading</>
+            <Route path={`all/:productId`} element={<Product />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/contacts' element={<Contacts />} />
+            <Route path='*' element={<PageNotFound />} />
+          </Routes>
+          : <div style={loaderStyles} >
+            <Loader />
+          </div>
       }
-      <Route path={`all/:productId`} element={<Product />} />
-      <Route path='/about' element={<About />} />
-      <Route path='/contacts' element={<Contacts />} />
-      <Route path='*' element={<PageNotFound />} />
-    </Routes>
+    </>
   );
 }
 

@@ -66,35 +66,41 @@ const CategoriesList: React.FC = () => {
       } else {
         setSelectedSubcategory(sub)
         requestProductsBySelectedSubcategory(sub);
-        setSearchParams({subcategory: sub})
+        setSearchParams({ subcategory: sub })
       }
     }
   }
 
   return (
     <ul className={styles.categories}>
-      <Link
-        to={`/all`}
-        className={styles.link}
-        key={'all'}
-      >
-        <li className={styles.category}>
-          back to ALL
-        </li>
-      </Link>
-      {subcategories.map((sub) => (
-        <li
-          className={`${styles.category} ${selectedSubcategory === sub ? styles.category_active : ''}`}
-          key={sub}
-          onClick={() => handleCategoryClick(sub)}
-        >
-          {sub}
-          {
-            selectedSubcategory === sub && <div className={styles.icon} />
-          }
-        </li>
-      )
-      )}
+      {
+        subcategories.length !== 0 ?
+        <>
+          <Link
+            to={`/all`}
+            className={styles.link}
+            key={'all'}
+          >
+            <li className={styles.category}>
+              back to ALL
+            </li>
+          </Link>
+          {subcategories.map((sub) => (
+            <li
+              className={`${styles.category} ${selectedSubcategory === sub ? styles.category_active : ''}`}
+              key={sub}
+              onClick={() => handleCategoryClick(sub)}
+            >
+              {sub}
+              {
+                selectedSubcategory === sub && <div className={styles.icon} />
+              }
+            </li>
+          )
+          )}
+        </>
+        : <div className={styles.container} />
+      }
     </ul>
   );
 }
