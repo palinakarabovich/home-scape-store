@@ -2,15 +2,25 @@ import React from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './ProductsList.module.css'
 import { IProductsListProps } from './types';
-import { Link, useLocation } from 'react-router-dom';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import ProductCardSkeleton from '../ProductCardSkeleton/ProductCardSkeleton';
 
 const ProductsList: React.FC<IProductsListProps> = ({ products }) => {
 
+  const { loading } = useAppSelector((store) => store.products)
+
   return (
     <div className={styles.products}>
-      {products.map((card) => (
-          <ProductCard {...card} key={card.id} />
-      ))}
+      {
+        !loading.status && loading.success
+          ? <>{products?.map((card) => (
+            <ProductCard {...card} key={card.id} />
+          ))}</>
+          : <>
+            {[...new Array(3)].map((_) => <ProductCardSkeleton />)}
+          </>
+      }
+
     </div>
   );
 }

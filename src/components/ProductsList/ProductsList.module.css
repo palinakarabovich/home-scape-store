@@ -7,4 +7,5 @@
   flex-wrap: wrap;
   box-sizing: border-box;
   row-gap: 100px;
+  column-gap: 30px;
 }

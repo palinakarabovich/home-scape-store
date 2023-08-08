@@ -1,10 +1,13 @@
 import React from 'react';
 import styles from './Header.module.css';
 import { cartIcon } from '../../utils/icons';
-import categories from '../../assets/categories';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../../hooks/useAppSelector';
 
 const Header = () => {
+
+  const { categories } = useAppSelector((store) => store.categories)
+
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
@@ -24,15 +27,20 @@ const Header = () => {
                 className={styles.category}
                 key={c.url}
               >
-                <Link to={c.url} className={styles.link}>{c.name.toLocaleUpperCase()}</Link>
+                <Link
+                  to={c.url}
+                  className={styles.link}
+                >
+                  {c.name}
+                </Link>
                 <ul className={styles.subcategories}>
                   {c.subcategories?.map((sub) => (
                     <li
                       className={styles.subcategory}
-                      key={sub.url}
+                      key={sub.name}
                     >
                       <Link
-                        to={sub.url}
+                        to={`${c.url}?subcategory=${sub.name.toLowerCase()}`}
                         className={styles.link}
                       >
                         {sub.name.toLowerCase()}

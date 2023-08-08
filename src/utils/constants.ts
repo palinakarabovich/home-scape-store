@@ -11,3 +11,7 @@ export const MAPS_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 export const DEFAULT_POSITION = {
   coordinates: {lat: 53.3937341317919, lng: -2.642999160672522}
 }
+
+export const PRODUCTS_URL = 'https://636d04f791576e19e31ceb50.mockapi.io/products'
+
+export const CATEGORIES_URL = 'https://636d04f791576e19e31ceb50.mockapi.io/categories'

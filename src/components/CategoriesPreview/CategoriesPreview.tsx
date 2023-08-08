@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-import categories from "../../assets/categories";
 import styles from './CategoriesPreview.module.css'
+import { useAppSelector } from "../../hooks/useAppSelector";
 
 const CategoriesPreview = () => {
+
+  const {categories} = useAppSelector((store) => store.categories)
   return (
     <section className={styles.categories}>
       {

@@ -1,3 +1,10 @@
+.container{
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .product{
   width: 80%;
   margin: 0 auto;
@@ -93,6 +100,7 @@ color: #000;
   width: 100%;
   object-position: center;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .price{

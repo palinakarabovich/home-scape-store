@@ -1,5 +1,5 @@
 .card{
-  width: 30%;
+  width: 350px;
   position: relative;
   cursor: pointer;
 }
@@ -36,6 +36,7 @@
   object-fit: cover;
   object-position: center;
   margin-bottom: 20px;
+  border-radius: 5px;
   transition: transform ease-in-out .3s;
 }
 

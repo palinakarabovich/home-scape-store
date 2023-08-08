@@ -8,7 +8,7 @@ export interface IProduct {
   subcategory: string,
   image: string,
   category: string,
-  id: number
+  id: string
 }
 
 export interface ICategory {
@@ -18,6 +18,25 @@ export interface ICategory {
   subcategories: Array<ICategory>
 }
 
+export interface ICategoryRoute {
+  name: string,
+  url: string,
+  image?: string
+}
+
 export type TPosition = {
   coordinates: LatLngLiteral;
+}
+
+export interface IDataLoading {
+  status: boolean,
+  error: boolean,
+  message: string,
+  success: boolean
+}
+
+export interface IRejectedActionPayload {
+  message: string;
+  name: string;
+  stack?: string;
 }

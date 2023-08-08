@@ -13,7 +13,7 @@ const ProductCard: React.FC<IProduct> = ({ name, description, price, discount, i
   return (
     <article className={styles.card}>
       <Link
-        to={`/${category}/${id}`}
+        to={`/all/${id}`}
         className={styles.link}
       >
         {discount !== 0 &&
