@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ICategory, ICategoryRoute, IDataLoading, IProduct } from "../../@types/types";
-import categories from "../../assets/categories";
+import { ICategory, ICategoryRoute, IDataLoading } from "../../@types/types";
 import { CATEGORIES_URL } from "../../utils/constants";
 import { createCategoriesRoutes } from "../../utils/createCategoriesList";
 
@@ -11,7 +10,7 @@ interface IInitialState {
 }
 
 const initialState: IInitialState = {
-  categories: categories,
+  categories: [],
   categoriesRoutes: [],
   loading: {
     status: false,

@@ -12,7 +12,7 @@ import { useAppSelector } from "../hooks/useAppSelector";
 
 const Router = () => {
 
-  const { categories, categoriesRoutes, loading } = useAppSelector((store) => store.categories)
+  const { categoriesRoutes, loading } = useAppSelector((store) => store.categories)
   const dispatch = useAppDispatch();
 
   React.useEffect(() => {
@@ -41,9 +41,7 @@ const Router = () => {
         ))
         : <>Loading</>
       }
-      {
-        categories.map((cat) => <Route path={`${cat.url}/:productId`} element={<Product />} />)
-      }
+      <Route path={`all/:productId`} element={<Product />} />
       <Route path='/about' element={<About />} />
       <Route path='/contacts' element={<Contacts />} />
       <Route path='*' element={<PageNotFound />} />

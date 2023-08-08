@@ -4,7 +4,7 @@ import { PRODUCTS_URL } from "../../utils/constants";
 
 interface IInitialState {
   products: {
-    [key: string ]: Array<IProduct>,
+    [key: string]: Array<IProduct>,
   },
   loading: IDataLoading
 }
@@ -34,12 +34,12 @@ export const productsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
-      state.products= {};
+      state.products = {};
       state.loading.status = true;
       state.loading.success = false;
     });
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
-      if(action.payload.type) {
+      if (action.payload.type) {
         state.products[action.payload.type] = action.payload.productsData;
       } else {
         state.products['all'] = action.payload.productsData
@@ -51,21 +51,21 @@ export const productsSlice = createSlice({
       state.loading.success = false;
       state.loading.status = false;
       state.loading.error = true;
-      if(action.error.message){
+      if (action.error.message) {
         state.loading.message = action.error.message;
       }
     })
   }
 })
 
-export const fetchProducts = createAsyncThunk('products/fetchProducts', async (params : IParams) => {
+export const fetchProducts = createAsyncThunk('products/fetchProducts', async ({ query, type }: IParams) => {
   try {
-    const res = await fetch(`${PRODUCTS_URL}?${params.query}`);
+    const res = await fetch(`${PRODUCTS_URL}?${query}`);
     if (res.ok) {
       const productsData = await res.json();
       return {
         productsData,
-        type: params.type
+        type: type
       };
     } else {
       throw new Error(res.statusText)
