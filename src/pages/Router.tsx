@@ -30,9 +30,7 @@ const Router = () => {
             path={r.url}
             key={r.url}
             element={<Catalog
-              type={r.name}
-              category={r.category}
-              subcategory={r.subcategory}
+              type={r.name.toLowerCase()}
             />
             }
           >

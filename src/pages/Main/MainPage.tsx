@@ -15,7 +15,7 @@ const MainPage = () => {
       <Intro />
       <CategoriesPreview />
       {
-        categories.map((cat) => <ProductsPreview type={cat.name.toLowerCase()} /> )
+        categories.map((cat) => <ProductsPreview type={cat.name.toLowerCase()} key={cat.name}/> )
       }
       <Subscription />
     </div>

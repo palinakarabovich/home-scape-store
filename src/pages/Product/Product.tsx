@@ -41,7 +41,7 @@ const Product = () => {
                 {selectedProduct?.category} &#8594;
               </Link>
               <Link
-                to={`/${selectedProduct?.subcategory}`}
+                to={`/${selectedProduct?.category}?subcategory=${selectedProduct.subcategory}`}
                 className={styles.link}
               >
                 {selectedProduct?.subcategory} &#8594;

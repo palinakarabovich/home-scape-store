@@ -21,9 +21,7 @@ export interface ICategory {
 export interface ICategoryRoute {
   name: string,
   url: string,
-  image?: string,
-  subcategory: boolean,
-  category: boolean
+  image?: string
 }
 
 export type TPosition = {

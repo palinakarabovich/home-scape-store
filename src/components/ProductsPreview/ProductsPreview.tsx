@@ -25,7 +25,7 @@ const ProductsPreview: React.FC<IProductPreviewProps> = ({ type }) => {
         <div className={styles.products}>
           {
             products[type]?.map((p, index) => index < 3 && (
-              <ProductCard key={index} {...p} />
+              <ProductCard key={p.id} {...p} />
             ))
           }
         </div>

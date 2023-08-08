@@ -7,21 +7,27 @@ import CategoriesPreview from '../../components/CategoriesPreview/CategoriesPrev
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { fetchProducts } from '../../redux/slices/productsSlice';
+import { useSearchParams } from 'react-router-dom';
 
-const Catalog: React.FC<ICatalog> = ({ type, category, subcategory }) => {
+const Catalog: React.FC<ICatalog> = ({ type }) => {
 
-  const [categoriesList, setCategoriesList] = React.useState<Array<string>>([]);
   const { products, loading } = useAppSelector((store) => store.products);
   const dispatch = useAppDispatch();
-
+  const [searchParams, _] = useSearchParams();
 
   React.useEffect(() => {
-    const query = `${category ? `category=${type}` : subcategory ? `subcategory=${type}` : '' }` ;
-    dispatch(fetchProducts({ type, query }))
+    const params = searchParams.get('subcategory');
+    if (!params) {
+
+      const query = `${type === 'all' ? '' : `category=${type}`}`;
+      dispatch(fetchProducts({ type, query }))
+    } else {
+      const query = `subcategory=${params}`;
+      dispatch(fetchProducts({ type, query }))
+    }
   }, [type])
-
   React.useEffect(() => {
-    
+
   }, [products])
 
   return (
@@ -34,12 +40,7 @@ const Catalog: React.FC<ICatalog> = ({ type, category, subcategory }) => {
       {
         type === 'all'
           ? <CategoriesPreview />
-          : categoriesList.length !== 0 &&
-          <CategoriesList
-            categories={categoriesList}
-            subcategory={subcategory}
-            category={category}
-          />
+          : <CategoriesList />
       }
       {
         loading.success && !loading.status ? <ProductsList products={products[type]} /> : <>Loading</>

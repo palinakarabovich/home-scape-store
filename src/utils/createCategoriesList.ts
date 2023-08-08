@@ -7,13 +7,11 @@ export const createCategoriesRoutes = (categories: Array<ICategory>) => {
   const newRoutes: Array<ICategoryRoute> = [{
     name: 'all',
     url: '/all',
-    category: false,
-    subcategory: false
   }];
   categories.forEach((cat) => {
-    newRoutes.push({ name: cat.name, image: cat.image, url: `/${cat.name.toLowerCase()}`, category: true, subcategory: false });
+    newRoutes.push({ name: cat.name, image: cat.image, url: `/${cat.name.toLowerCase()}`});
     cat.subcategories.forEach((sub) => {
-      newRoutes.push({ name: sub.name, url: `/${sub.name.toLowerCase()}`, category: false, subcategory: true });
+      newRoutes.push({ name: sub.name, url: `/${sub.name.toLowerCase()}`});
     });
   });
   return newRoutes;

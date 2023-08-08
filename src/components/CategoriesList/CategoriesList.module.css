@@ -12,14 +12,58 @@
   border-radius: 5px;
   transition: ease-in-out background-color .3s;
   cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .category:hover{
-  background-color: #ccc;
+  background-color: rgb(255,41,50);;
+}
+
+.category_active{
+  background-color: rgb(255,41,50);
 }
 
 .link{
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
+}
+
+.icon{
+  width: 20px;
+  height: 20px;
+  position: relative;
+  opacity: 0;
+  transition: .3s ease-in-out opacity;
+}
+
+.category_active .icon{
+  opacity: 1;
+}
+
+.icon::before{
+  content: '';
+  width: 2px;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: rotate(45deg);
+}
+
+.icon::after{
+  content: '';
+  width: 2px;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: rotate(-45deg);
 }
