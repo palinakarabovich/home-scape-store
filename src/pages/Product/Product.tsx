@@ -5,6 +5,7 @@ import { countPriceWithDiscount } from '../../utils/countPrice';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { cleanSelectedProduct, fetchProductById } from '../../redux/slices/selectedProductSlice';
+import Loader from '../../components/Loader/Loader';
 
 const Product = () => {
 
@@ -30,8 +31,9 @@ const Product = () => {
     <>
       {
         loading.status && !loading.success
-          ?
-          <>Loading</>
+          ? <div className={styles.container}>
+            <Loader />
+          </div>
           : <section className={styles.product}>
             <div className={styles.links}>
               <Link
