@@ -24,6 +24,21 @@ const Product = () => {
     }
   }, [])
 
+  React.useEffect(() => {
+    window.addEventListener('keydown', handleArrowPress)
+    return () => {
+      window.removeEventListener('keydown', handleArrowPress)
+    }
+  });
+
+  const handleArrowPress = (e: KeyboardEvent) => {
+    if(e.key ===  'ArrowLeft' && selectedImage >= 1){
+      handleSliderBackClick()
+    } else if(e.key === 'ArrowRight' && selectedImage !== selectedProduct.images.length - 1) {
+      handleSliderForwardClick();
+    }
+  }
+
   const handleDescriptionClick = () => {
     setDescriptionClicked(!descriptionClicked)
   }
