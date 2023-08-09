@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, Outlet, useNavigate, useParams } from 'react-router-dom';
 import styles from './Product.module.css'
 import React from 'react';
 import { countPriceWithDiscount } from '../../utils/countPrice';
@@ -13,7 +13,7 @@ const Product = () => {
   const dispatch = useAppDispatch();
   const { selectedProduct, loading } = useAppSelector((store) => store.selectedProduct)
   const [descriptionClicked, setDescriptionClicked] = React.useState<boolean>(false);
-  const [selectedImage, setSelectedImage] = React.useState<number>(0)
+  const [selectedImage, setSelectedImage] = React.useState<number>(0);
 
   React.useEffect(() => {
     if (productId) {
@@ -33,11 +33,11 @@ const Product = () => {
   }
 
   const handleSliderForwardClick = () => {
-    setSelectedImage((pr) => pr+1)
+    setSelectedImage((pr) => pr + 1)
   }
 
   const handleSliderBackClick = () => {
-    setSelectedImage((pr) => pr-1)
+    setSelectedImage((pr) => pr - 1)
   }
 
   return (
@@ -75,25 +75,29 @@ const Product = () => {
                     selectedProduct.images.length > 1
                     && <>
                       {
-                      selectedImage >= 1 && <div
-                      className={`${styles.icon} ${styles.icon_left}`}
-                      onClick={handleSliderBackClick}
-                      />
+                        selectedImage >= 1 && <div
+                          className={`${styles.icon} ${styles.icon_left}`}
+                          onClick={handleSliderBackClick}
+                        />
                       }
                       {
-                      selectedImage !== selectedProduct.images.length - 1 && <div
-                      className={`${styles.icon} ${styles.icon_right}`}
-                      onClick={handleSliderForwardClick}
-                      />
+                        selectedImage !== selectedProduct.images.length - 1 && <div
+                          className={`${styles.icon} ${styles.icon_right}`}
+                          onClick={handleSliderForwardClick}
+                        />
                       }
                     </>
                   }
-
-                  <img
-                    src={selectedProduct?.images[selectedImage]}
-                    alt={selectedProduct?.name}
-                    className={styles.image}
-                  />
+                  <Link
+                    to={`/all/${selectedProduct.id}/${selectedImage}`}
+                    className={styles.link}
+                    >
+                    <img
+                      src={selectedProduct?.images[selectedImage]}
+                      alt={selectedProduct?.name}
+                      className={styles.image}
+                    />
+                  </Link>
                 </div>
                 <div className={styles.images_container}>
                   {selectedProduct.images.length > 1 &&
@@ -142,6 +146,7 @@ const Product = () => {
                 </button>
               </div>
             </article>
+            <Outlet />
           </section>
       }
     </>

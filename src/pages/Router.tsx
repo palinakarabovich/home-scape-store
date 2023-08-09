@@ -10,6 +10,8 @@ import { useAppDispatch } from "../hooks/useAppDispatch";
 import { fetchCategories } from "../redux/slices/categoriesSlice";
 import { useAppSelector } from "../hooks/useAppSelector";
 import Loader from "../components/Loader/Loader";
+import ModalOverlay from "../components/ModalOverlay/ModalOverlay";
+import ProductImage from "../components/ProductImage/ProductImage";
 
 const loaderStyles = {
   width: '100%',
@@ -48,7 +50,11 @@ const Router = () => {
               </Route>
             ))
             }
-            <Route path={`all/:productId`} element={<Product />} />
+            <Route path={`all/:productId`} element={<Product />}>
+            <Route path={`:imageId`} element={<ModalOverlay>
+              <ProductImage />
+            </ModalOverlay>} />
+            </Route>
             <Route path='/about' element={<About />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='*' element={<PageNotFound />} />
