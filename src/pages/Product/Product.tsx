@@ -13,6 +13,7 @@ const Product = () => {
   const dispatch = useAppDispatch();
   const { selectedProduct, loading } = useAppSelector((store) => store.selectedProduct)
   const [descriptionClicked, setDescriptionClicked] = React.useState<boolean>(false);
+  const [selectedImage, setSelectedImage] = React.useState<number>(0)
 
   React.useEffect(() => {
     if (productId) {
@@ -25,6 +26,10 @@ const Product = () => {
 
   const handleDescriptionClick = () => {
     setDescriptionClicked(!descriptionClicked)
+  }
+
+  const handleImagePreviewClick = (index: number) => {
+    setSelectedImage(index);
   }
 
   return (
@@ -58,10 +63,22 @@ const Product = () => {
             <article className={styles.card}>
               <div className={styles.slider}>
                 <img
-                  src={selectedProduct?.images[0]}
+                  src={selectedProduct?.images[selectedImage]}
                   alt={selectedProduct?.name}
                   className={styles.image}
                 />
+                <div className={styles.images_container}>
+                  {selectedProduct.images.length > 1 &&
+                    selectedProduct?.images.map((img, index) => <img
+                      src={img}
+                      key={index}
+                      alt={selectedProduct.name}
+                      className={`${styles.image_preview} ${index === selectedImage ? styles.image_preview_active : ''}`}
+                      onClick={() => handleImagePreviewClick(index)}
+                    />
+                    )
+                  }
+                </div>
               </div>
               <div className={styles.description}>
                 <h2 className={styles.title}>{selectedProduct?.name}</h2>
