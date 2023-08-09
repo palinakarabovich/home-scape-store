@@ -32,6 +32,14 @@ const Product = () => {
     setSelectedImage(index);
   }
 
+  const handleSliderForwardClick = () => {
+    setSelectedImage((pr) => pr+1)
+  }
+
+  const handleSliderBackClick = () => {
+    setSelectedImage((pr) => pr-1)
+  }
+
   return (
     <>
       {
@@ -62,11 +70,31 @@ const Product = () => {
             </div>
             <article className={styles.card}>
               <div className={styles.slider}>
-                <img
-                  src={selectedProduct?.images[selectedImage]}
-                  alt={selectedProduct?.name}
-                  className={styles.image}
-                />
+                <div className={styles.wrapper}>
+                  {
+                    selectedProduct.images.length > 1
+                    && <>
+                      {
+                      selectedImage >= 1 && <div
+                      className={`${styles.icon} ${styles.icon_left}`}
+                      onClick={handleSliderBackClick}
+                      />
+                      }
+                      {
+                      selectedImage !== selectedProduct.images.length - 1 && <div
+                      className={`${styles.icon} ${styles.icon_right}`}
+                      onClick={handleSliderForwardClick}
+                      />
+                      }
+                    </>
+                  }
+
+                  <img
+                    src={selectedProduct?.images[selectedImage]}
+                    alt={selectedProduct?.name}
+                    className={styles.image}
+                  />
+                </div>
                 <div className={styles.images_container}>
                   {selectedProduct.images.length > 1 &&
                     selectedProduct?.images.map((img, index) => <img
