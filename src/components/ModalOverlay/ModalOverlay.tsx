@@ -3,6 +3,8 @@ import styles from './ModalOverlay.module.css';
 import ReactDOM from 'react-dom'
 import { IModalOverlay } from './types';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { closeModal } from '../../redux/slices/modalSlice';
 
 const ModalOverlay: React.FC<IModalOverlay> = ({ children }) => {
 
@@ -10,8 +12,8 @@ const ModalOverlay: React.FC<IModalOverlay> = ({ children }) => {
 
   const { pathname } = useLocation();
   const [previousPath, setPreviousPath] = React.useState('');
-  const [currentImage, seCurrentImage] = React.useState<number>()
   let navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   React.useEffect(() => {
     window.addEventListener('keydown', closeEsc)
@@ -22,8 +24,6 @@ const ModalOverlay: React.FC<IModalOverlay> = ({ children }) => {
 
   React.useEffect(() => {
     const currentPathArray = pathname?.split('/');
-    const imageIndex = Number(currentPathArray[currentPathArray.length - 1])
-    seCurrentImage(imageIndex)
     const previousPagePath = currentPathArray?.map((p, index) => {
       if (index < currentPathArray.length - 1)
         return p
@@ -32,7 +32,8 @@ const ModalOverlay: React.FC<IModalOverlay> = ({ children }) => {
   }, [])
 
   const handleClose = () => {
-    navigate(previousPath)
+    navigate(previousPath);
+    dispatch(closeModal());
   }
 
   const closeEsc = (e: KeyboardEvent) => {

@@ -6,6 +6,7 @@ import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { cleanSelectedProduct, fetchProductById } from '../../redux/slices/selectedProductSlice';
 import Loader from '../../components/Loader/Loader';
+import { openModal } from '../../redux/slices/modalSlice';
 
 const Product = () => {
 
@@ -14,6 +15,8 @@ const Product = () => {
   const { selectedProduct, loading } = useAppSelector((store) => store.selectedProduct)
   const [descriptionClicked, setDescriptionClicked] = React.useState<boolean>(false);
   const [selectedImage, setSelectedImage] = React.useState<number>(0);
+  const navigate = useNavigate();
+  const {isOpen} = useAppSelector((store) => store.modal)
 
   React.useEffect(() => {
     if (productId) {
@@ -32,9 +35,9 @@ const Product = () => {
   });
 
   const handleArrowPress = (e: KeyboardEvent) => {
-    if(e.key ===  'ArrowLeft' && selectedImage >= 1){
+    if(e.key ===  'ArrowLeft' && selectedImage >= 1 && !isOpen){
       handleSliderBackClick()
-    } else if(e.key === 'ArrowRight' && selectedImage !== selectedProduct.images.length - 1) {
+    } else if(e.key === 'ArrowRight' && selectedImage !== selectedProduct.images.length - 1 && !isOpen) {
       handleSliderForwardClick();
     }
   }
@@ -53,6 +56,11 @@ const Product = () => {
 
   const handleSliderBackClick = () => {
     setSelectedImage((pr) => pr - 1)
+  }
+
+  const openImage = () => {
+    navigate(`/all/${selectedProduct.id}/${selectedImage}`);
+    dispatch(openModal());
   }
 
   return (
@@ -103,16 +111,12 @@ const Product = () => {
                       }
                     </>
                   }
-                  <Link
-                    to={`/all/${selectedProduct.id}/${selectedImage}`}
-                    className={styles.link}
-                    >
                     <img
                       src={selectedProduct?.images[selectedImage]}
                       alt={selectedProduct?.name}
                       className={styles.image}
+                      onClick={openImage}
                     />
-                  </Link>
                 </div>
                 <div className={styles.images_container}>
                   {selectedProduct.images.length > 1 &&
