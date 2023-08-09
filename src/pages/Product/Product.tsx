@@ -58,7 +58,7 @@ const Product = () => {
             <article className={styles.card}>
               <div className={styles.slider}>
                 <img
-                  src={selectedProduct?.image}
+                  src={selectedProduct?.images[0]}
                   alt={selectedProduct?.name}
                   className={styles.image}
                 />

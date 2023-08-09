@@ -4,7 +4,7 @@ import { countPriceWithDiscount } from '../../utils/countPrice';
 import styles from './ProductCard.module.css';
 import React from 'react';
 
-const ProductCard: React.FC<IProduct> = ({ name, description, price, discount, image, category, id }) => {
+const ProductCard: React.FC<IProduct> = ({ name, description, price, discount, images, category, id }) => {
 
   const handleAddToCartClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
@@ -24,7 +24,7 @@ const ProductCard: React.FC<IProduct> = ({ name, description, price, discount, i
           </div>
         }
         <img
-          src={image}
+          src={images[0]}
           alt={name}
           className={styles.image}
         />
