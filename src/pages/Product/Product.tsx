@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, Outlet, useNavigate, useParams } from 'react-router-dom';
 import styles from './Product.module.css'
 import React from 'react';
 import { countPriceWithDiscount } from '../../utils/countPrice';
@@ -6,6 +6,7 @@ import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { cleanSelectedProduct, fetchProductById } from '../../redux/slices/selectedProductSlice';
 import Loader from '../../components/Loader/Loader';
+import { openModal } from '../../redux/slices/modalSlice';
 
 const Product = () => {
 
@@ -13,6 +14,9 @@ const Product = () => {
   const dispatch = useAppDispatch();
   const { selectedProduct, loading } = useAppSelector((store) => store.selectedProduct)
   const [descriptionClicked, setDescriptionClicked] = React.useState<boolean>(false);
+  const [selectedImage, setSelectedImage] = React.useState<number>(0);
+  const navigate = useNavigate();
+  const {isOpen} = useAppSelector((store) => store.modal)
 
   React.useEffect(() => {
     if (productId) {
@@ -23,8 +27,40 @@ const Product = () => {
     }
   }, [])
 
+  React.useEffect(() => {
+    window.addEventListener('keydown', handleArrowPress)
+    return () => {
+      window.removeEventListener('keydown', handleArrowPress)
+    }
+  });
+
+  const handleArrowPress = (e: KeyboardEvent) => {
+    if(e.key ===  'ArrowLeft' && selectedImage >= 1 && !isOpen){
+      handleSliderBackClick()
+    } else if(e.key === 'ArrowRight' && selectedImage !== selectedProduct.images.length - 1 && !isOpen) {
+      handleSliderForwardClick();
+    }
+  }
+
   const handleDescriptionClick = () => {
     setDescriptionClicked(!descriptionClicked)
+  }
+
+  const handleImagePreviewClick = (index: number) => {
+    setSelectedImage(index);
+  }
+
+  const handleSliderForwardClick = () => {
+    setSelectedImage((pr) => pr + 1)
+  }
+
+  const handleSliderBackClick = () => {
+    setSelectedImage((pr) => pr - 1)
+  }
+
+  const openImage = () => {
+    navigate(`/all/${selectedProduct.id}/${selectedImage}`);
+    dispatch(openModal());
   }
 
   return (
@@ -57,11 +93,43 @@ const Product = () => {
             </div>
             <article className={styles.card}>
               <div className={styles.slider}>
-                <img
-                  src={selectedProduct?.image}
-                  alt={selectedProduct?.name}
-                  className={styles.image}
-                />
+                <div className={styles.wrapper}>
+                  {
+                    selectedProduct.images.length > 1
+                    && <>
+                      {
+                        selectedImage >= 1 && <div
+                          className={`${styles.icon} ${styles.icon_left}`}
+                          onClick={handleSliderBackClick}
+                        />
+                      }
+                      {
+                        selectedImage !== selectedProduct.images.length - 1 && <div
+                          className={`${styles.icon} ${styles.icon_right}`}
+                          onClick={handleSliderForwardClick}
+                        />
+                      }
+                    </>
+                  }
+                    <img
+                      src={selectedProduct?.images[selectedImage]}
+                      alt={selectedProduct?.name}
+                      className={styles.image}
+                      onClick={openImage}
+                    />
+                </div>
+                <div className={styles.images_container}>
+                  {selectedProduct.images.length > 1 &&
+                    selectedProduct?.images.map((img, index) => <img
+                      src={img}
+                      key={index}
+                      alt={selectedProduct.name}
+                      className={`${styles.image_preview} ${index === selectedImage ? styles.image_preview_active : ''}`}
+                      onClick={() => handleImagePreviewClick(index)}
+                    />
+                    )
+                  }
+                </div>
               </div>
               <div className={styles.description}>
                 <h2 className={styles.title}>{selectedProduct?.name}</h2>
@@ -97,6 +165,7 @@ const Product = () => {
                 </button>
               </div>
             </article>
+            <Outlet />
           </section>
       }
     </>

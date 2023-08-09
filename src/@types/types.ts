@@ -6,7 +6,7 @@ export interface IProduct {
   price: number,
   discount: number,
   subcategory: string,
-  image: string,
+  images: Array<string>,
   category: string,
   id: string
 }

@@ -97,10 +97,12 @@ color: #000;
 
 
 .image{
-  width: 100%;
+  width: 500px;
+  height: 550px;
   object-position: center;
   object-fit: cover;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .price{
@@ -138,4 +140,102 @@ color: #000;
 
 .button:hover{
   background-color: rgb(255,41,50);
+}
+
+.images_container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  overflow-x: scroll;
+  width: 500px;
+}
+
+.image_preview{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+}
+
+.image_preview_active{
+  filter: grayscale(100%);
+}
+
+.wrapper{
+  position: relative;
+  width: 500px;
+}
+
+.icon{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-color: #BBB;
+  border-radius: 50%;
+  transition: ease-in-out .3s background-color;
+}
+
+.icon_left {
+  top: 50%;
+  left: 10px;
+}
+
+.icon_right{
+  top: 50%;
+  right: 10px;
+}
+
+.icon:hover{
+  background-color: rgb(255,41,50);
+  cursor: pointer;
+}
+
+.icon_left::after{
+  content: '';
+  width: 10px;
+  height: 2px;
+  background-color: #FFF;
+  position: absolute;
+  transform: rotate(-45deg);
+  top: 36.7%;
+  left: 30%;
+  border-radius: 1px;
+}
+
+.icon_left::before{
+  content: '';
+  width: 10px;
+  height: 2px;
+  background-color: #FFF;
+  position: absolute;
+  transform: rotate(45deg);
+  bottom: 36.7%;
+  left: 30%;
+  border-radius: 1px;
+}
+
+.icon_right::after{
+  content: '';
+  width: 10px;
+  height: 2px;
+  background-color: #FFF;
+  position: absolute;
+  transform: rotate(45deg);
+  top: 36.7%;
+  right: 30%;
+  border-radius: 1px;
+}
+
+.icon_right::before{
+  content: '';
+  width: 10px;
+  height: 2px;
+  background-color: #FFF;
+  position: absolute;
+  transform: rotate(-45deg);
+  bottom: 36.7%;
+  right: 30%;
+  border-radius: 1px;
 }
