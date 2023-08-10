@@ -6,6 +6,7 @@ import { ICategory } from '../../@types/types';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { fetchProducts } from '../../redux/slices/productsSlice';
 import { ICategoriesListProps } from './types';
+import Category from '../Category/Category';
 
 const CategoriesList: React.FC<ICategoriesListProps> = ({ categories }) => {
 
@@ -81,21 +82,15 @@ const CategoriesList: React.FC<ICategoriesListProps> = ({ categories }) => {
               className={styles.link}
               key={'all'}
             >
-              <li className={styles.category}>
-                back to ALL
-              </li>
+              <Category name={'back to ALL'} />
             </Link>
             {subcategories.map((sub) => (
-              <li
-                className={`${styles.category} ${selectedSubcategory === sub ? styles.category_active : ''}`}
+              <Category
+                name={sub}
+                isSelected={selectedSubcategory === sub ? true : false}
+                handleClick={handleCategoryClick}
                 key={sub}
-                onClick={() => handleCategoryClick(sub)}
-              >
-                {sub}
-                {
-                  selectedSubcategory === sub && <div className={styles.icon} />
-                }
-              </li>
+              />
             )
             )}
           </>
