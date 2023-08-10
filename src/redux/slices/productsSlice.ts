@@ -29,8 +29,8 @@ export const productsSlice = createSlice({
   initialState,
   reducers: {
     setProducts: (state, action) => {
-      console.log('set')
-    }
+      state.products = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
@@ -74,7 +74,6 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ({
     return Promise.reject(err);
   }
 })
-
 
 export const { setProducts } = productsSlice.actions;
 

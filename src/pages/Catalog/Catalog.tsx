@@ -12,6 +12,7 @@ import { useSearchParams } from 'react-router-dom';
 const Catalog: React.FC<ICatalog> = ({ type }) => {
 
   const { products } = useAppSelector((store) => store.products);
+  const { categories } = useAppSelector((store) => store.categories)
   const dispatch = useAppDispatch();
   const [searchParams, _] = useSearchParams();
 
@@ -25,6 +26,7 @@ const Catalog: React.FC<ICatalog> = ({ type }) => {
       dispatch(fetchProducts({ type, query }))
     }
   }, [type, searchParams])
+  
   React.useEffect(() => {
 
   }, [products])
@@ -39,7 +41,7 @@ const Catalog: React.FC<ICatalog> = ({ type }) => {
       {
         type === 'all'
           ? <CategoriesPreview />
-          : <CategoriesList />
+          : <CategoriesList categories={categories}/>
       }
       <ProductsList products={products[type]} />
     </section>

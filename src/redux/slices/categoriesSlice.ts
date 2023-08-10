@@ -5,7 +5,7 @@ import { createCategoriesRoutes } from "../../utils/createCategoriesList";
 
 interface IInitialState {
   categories: Array<ICategory>,
-  categoriesRoutes: Array<ICategoryRoute>,
+  categoriesRoutes: Array<ICategoryRoute>
   loading: IDataLoading
 }
 
@@ -25,8 +25,8 @@ export const categoriesSlice = createSlice({
   initialState,
   reducers: {
     setCategories: (state, action) => {
-      console.log('set')
-    }
+      state.categories = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCategories.pending, (state) => {
