@@ -29,7 +29,13 @@ export const productsSlice = createSlice({
   initialState,
   reducers: {
     setProducts: (state, action) => {
-      console.log('set')
+      state.products = action.payload;
+    },
+    findProductsOnSaleBySubcategory: (state, action) => {
+      if (state.products['sale']) {
+        const productsWithSubcategory = state.products['sale'].filter((p) => p.subcategory === action.payload)
+        state.products['sale'] = productsWithSubcategory;
+      }
     }
   },
   extraReducers: (builder) => {
@@ -39,7 +45,7 @@ export const productsSlice = createSlice({
       state.loading.success = false;
     });
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
-      if(action.payload.type === 'sale'){
+      if (action.payload.type === 'sale') {
         state.products[action.payload.type] = action.payload.productsData.filter((p: IProduct) => p.discount > 0);
       } else if (action.payload.type) {
         state.products[action.payload.type] = action.payload.productsData;
@@ -77,6 +83,6 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ({
   }
 })
 
-export const { setProducts } = productsSlice.actions;
+export const { setProducts, findProductsOnSaleBySubcategory } = productsSlice.actions;
 
 export default productsSlice.reducer;

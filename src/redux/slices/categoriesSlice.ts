@@ -6,7 +6,7 @@ import { createCategoriesRoutes } from "../../utils/createCategoriesList";
 interface IInitialState {
   categories: Array<ICategory>,
   categoriesRoutes: Array<ICategoryRoute>,
-  categoriesWithDiscount: Array<ICategory>,
+  categoriesWithDiscount: Array<string>
   loading: IDataLoading
 }
 

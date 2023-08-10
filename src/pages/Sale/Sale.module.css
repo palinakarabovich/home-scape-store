@@ -13,3 +13,16 @@
   margin: 20px 0;
   text-transform: uppercase;
 }
+
+.categories {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.container{
+  width: 100px;
+  height: 45px;
+}
