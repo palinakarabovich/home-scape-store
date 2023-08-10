@@ -8,6 +8,7 @@ import ProductCardSkeleton from '../ProductCardSkeleton/ProductCardSkeleton';
 const ProductsList: React.FC<IProductsListProps> = ({ products }) => {
 
   const { loading } = useAppSelector((store) => store.products)
+  const { loadingSale } = useAppSelector((store) => store.sale)
 
   return (
     <div className={styles.products}>
@@ -16,9 +17,13 @@ const ProductsList: React.FC<IProductsListProps> = ({ products }) => {
           ? <>{products?.map((card) => (
             <ProductCard {...card} key={card.id} />
           ))}</>
-          : <>
-            {[...new Array(3)].map((_) => <ProductCardSkeleton />)}
-          </>
+          : !loadingSale.status && loadingSale.success
+            ? <>{products?.map((card) => (
+              <ProductCard {...card} key={card.id} />
+            ))}</>
+            : <>
+              {[...new Array(3)].map((_) => <ProductCardSkeleton />)}
+            </>
       }
 
     </div>

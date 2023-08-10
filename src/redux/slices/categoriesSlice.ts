@@ -5,15 +5,13 @@ import { createCategoriesRoutes } from "../../utils/createCategoriesList";
 
 interface IInitialState {
   categories: Array<ICategory>,
-  categoriesRoutes: Array<ICategoryRoute>,
-  categoriesWithDiscount: Array<string>
+  categoriesRoutes: Array<ICategoryRoute>
   loading: IDataLoading
 }
 
 const initialState: IInitialState = {
   categories: [],
   categoriesRoutes: [],
-  categoriesWithDiscount: [],
   loading: {
     status: false,
     error: false,
@@ -29,9 +27,6 @@ export const categoriesSlice = createSlice({
     setCategories: (state, action) => {
       state.categories = action.payload;
     },
-    setCategoriesWithDiscount: (state, action) => {
-      state.categoriesWithDiscount = action.payload;
-    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCategories.pending, (state) => {
@@ -72,6 +67,6 @@ export const fetchCategories = createAsyncThunk('categories/fetchCategories', as
 })
 
 
-export const { setCategories, setCategoriesWithDiscount } = categoriesSlice.actions;
+export const { setCategories } = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;
