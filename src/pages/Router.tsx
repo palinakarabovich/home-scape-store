@@ -12,6 +12,7 @@ import { useAppSelector } from "../hooks/useAppSelector";
 import Loader from "../components/Loader/Loader";
 import ModalOverlay from "../components/ModalOverlay/ModalOverlay";
 import ProductImage from "../components/ProductImage/ProductImage";
+import Sale from "./Sale/Sale";
 
 const loaderStyles = {
   width: '100%',
@@ -56,6 +57,7 @@ const Router = () => {
             </ModalOverlay>} />
             </Route>
             <Route path='/about' element={<About />} />
+            <Route path='/sale' element={<Sale />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='*' element={<PageNotFound />} />
           </Routes>

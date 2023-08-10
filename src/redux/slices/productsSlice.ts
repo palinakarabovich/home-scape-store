@@ -39,7 +39,9 @@ export const productsSlice = createSlice({
       state.loading.success = false;
     });
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
-      if (action.payload.type) {
+      if(action.payload.type === 'sale'){
+        state.products[action.payload.type] = action.payload.productsData.filter((p: IProduct) => p.discount > 0);
+      } else if (action.payload.type) {
         state.products[action.payload.type] = action.payload.productsData;
       } else {
         state.products['all'] = action.payload.productsData
@@ -74,7 +76,6 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ({
     return Promise.reject(err);
   }
 })
-
 
 export const { setProducts } = productsSlice.actions;
 

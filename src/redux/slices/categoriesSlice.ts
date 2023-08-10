@@ -6,12 +6,14 @@ import { createCategoriesRoutes } from "../../utils/createCategoriesList";
 interface IInitialState {
   categories: Array<ICategory>,
   categoriesRoutes: Array<ICategoryRoute>,
+  categoriesWithDiscount: Array<ICategory>,
   loading: IDataLoading
 }
 
 const initialState: IInitialState = {
   categories: [],
   categoriesRoutes: [],
+  categoriesWithDiscount: [],
   loading: {
     status: false,
     error: false,
@@ -25,7 +27,10 @@ export const categoriesSlice = createSlice({
   initialState,
   reducers: {
     setCategories: (state, action) => {
-      console.log('set')
+      state.categories = action.payload;
+    },
+    setCategoriesWithDiscount: (state, action) => {
+      state.categoriesWithDiscount = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -67,6 +72,6 @@ export const fetchCategories = createAsyncThunk('categories/fetchCategories', as
 })
 
 
-export const { setCategories } = categoriesSlice.actions;
+export const { setCategories, setCategoriesWithDiscount } = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;

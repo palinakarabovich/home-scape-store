@@ -5,12 +5,12 @@ import { useAppSelector } from '../../hooks/useAppSelector';
 import { ICategory } from '../../@types/types';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { fetchProducts } from '../../redux/slices/productsSlice';
+import { ICategoriesListProps } from './types';
 
-const CategoriesList: React.FC = () => {
+const CategoriesList: React.FC<ICategoriesListProps> = ({ categories }) => {
 
   const dispatch = useAppDispatch();
   const { products } = useAppSelector((store) => store.products);
-  const { categories } = useAppSelector((store) => store.categories);
   const [category, setCategory] = React.useState<ICategory>();
   const [subcategories, setSubcategories] = React.useState<Array<string>>([]);
   const [selectedSubcategory, setSelectedSubcategory] = React.useState<string>('');
@@ -75,31 +75,31 @@ const CategoriesList: React.FC = () => {
     <ul className={styles.categories}>
       {
         subcategories.length !== 0 ?
-        <>
-          <Link
-            to={`/all`}
-            className={styles.link}
-            key={'all'}
-          >
-            <li className={styles.category}>
-              back to ALL
-            </li>
-          </Link>
-          {subcategories.map((sub) => (
-            <li
-              className={`${styles.category} ${selectedSubcategory === sub ? styles.category_active : ''}`}
-              key={sub}
-              onClick={() => handleCategoryClick(sub)}
+          <>
+            <Link
+              to={`/all`}
+              className={styles.link}
+              key={'all'}
             >
-              {sub}
-              {
-                selectedSubcategory === sub && <div className={styles.icon} />
-              }
-            </li>
-          )
-          )}
-        </>
-        : <div className={styles.container} />
+              <li className={styles.category}>
+                back to ALL
+              </li>
+            </Link>
+            {subcategories.map((sub) => (
+              <li
+                className={`${styles.category} ${selectedSubcategory === sub ? styles.category_active : ''}`}
+                key={sub}
+                onClick={() => handleCategoryClick(sub)}
+              >
+                {sub}
+                {
+                  selectedSubcategory === sub && <div className={styles.icon} />
+                }
+              </li>
+            )
+            )}
+          </>
+          : <div className={styles.container} />
       }
     </ul>
   );
