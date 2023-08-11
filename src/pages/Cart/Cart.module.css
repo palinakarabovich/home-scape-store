@@ -126,22 +126,25 @@
   padding: 15px;
   font-size: 20px;
   border: none;
-  color: #bbb;
   cursor: pointer;
   transition: ease-in-out .3s color;
+  color: #fff;
+  transition: .3s ease-in-out background-color;
+  background-color: #000;
 }
 
 .button:hover{
-  color: #000;
-}
-
-.button + .button {
-  background-color: #000;
-  color: #fff;
-  transition: .3s ease-in-out background-color;
-}
-
-.button + .button:hover{
   background-color:  rgb(255,41,50);
-  color: #fff;
+}
+
+.buttons .link{
+  padding: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #bbb;
+  transition: ease-in-out .3s color;
+}
+
+.buttons .link:hover{
+  color: #000;
 }

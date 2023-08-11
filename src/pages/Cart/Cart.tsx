@@ -41,7 +41,7 @@ const cart = {
 const Cart = () => {
   return (
     <section className={styles.cart}>
-      <h2 className={styles.title}>Your purchases:</h2>
+      <h2 className={styles.title}>Your purchase{cart.products.length > 1 && 's'}:</h2>
       <ul className={styles.list}>
         {cart.products.map((product) => <li className={styles.card}>
           <Link
@@ -80,7 +80,12 @@ const Cart = () => {
         <p className={styles.text}>{cart.sum} €</p>
       </div>
       <div className={styles.buttons}>
-        <button className={styles.button}>Back to Catalog</button>
+        <Link
+          to={`/all`}
+          className={styles.link}
+        >
+          Back to Catalog
+        </Link>
         <button className={styles.button}>Checkout</button>
       </div>
     </section>
