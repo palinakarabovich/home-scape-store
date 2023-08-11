@@ -13,17 +13,13 @@ const ProductsList: React.FC<IProductsListProps> = ({ products }) => {
   return (
     <div className={styles.products}>
       {
-        loading.status
+        !loading.success 
           ? <>
             {[...new Array(3)].map((_) => <ProductCardSkeleton />)}
           </>
-          : loadingSale.status
-            ? <>
-              {[...new Array(3)].map((_) => <ProductCardSkeleton />)}
-            </>
-            : <>{products?.map((card) => (
-              <ProductCard {...card} key={card.id} />
-            ))}</>
+          : <>{products?.map((card) => (
+            <ProductCard {...card} key={card.id} />
+          ))}</>
       }
 
     </div>

@@ -43,7 +43,10 @@ const Cart = () => {
     <section className={styles.cart}>
       <h2 className={styles.title}>Your purchase{cart.products.length > 1 && 's'}:</h2>
       <ul className={styles.list}>
-        {cart.products.map((product) => <li className={styles.card}>
+        {cart.products.map((product) => <li
+          className={styles.card}
+          key={product.item.id}
+        >
           <Link
             to={`/all/${product.item.id}`}
             className={styles.link}

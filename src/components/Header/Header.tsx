@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './Header.module.css';
 import { cartIcon } from '../../utils/icons';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/useAppSelector';
 
 const Header = () => {
 
-  const { categories } = useAppSelector((store) => store.categories)
+  const { categories } = useAppSelector((store) => store.categories);
+  const { pathname } = useLocation();
 
   return (
     <header className={styles.header}>
@@ -68,7 +69,12 @@ const Header = () => {
       <Link
         to='/cart'
       >
-        <div className={styles.cart}>
+        <div
+          className={styles.cart}
+          style={pathname.includes('cart') ? {
+            display: 'none'
+          } : {}}
+        >
           <div className={styles.icon}>
             {cartIcon}
           </div>
