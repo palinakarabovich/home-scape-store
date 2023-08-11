@@ -20,7 +20,8 @@ const initialState: IInitialState = {
     subcategory: '',
     category: '',
     images: [],
-    id: ''
+    id: '',
+    hasDiscount: false
   },
   loading: {
     status: true,

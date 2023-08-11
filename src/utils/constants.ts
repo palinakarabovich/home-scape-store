@@ -15,3 +15,5 @@ export const DEFAULT_POSITION = {
 export const PRODUCTS_URL = 'https://636d04f791576e19e31ceb50.mockapi.io/products'
 
 export const CATEGORIES_URL = 'https://636d04f791576e19e31ceb50.mockapi.io/categories'
+
+export const PRODUCTS_ON_SALE_URL = 'https://636d04f791576e19e31ceb50.mockapi.io/products?hasDiscount=true'

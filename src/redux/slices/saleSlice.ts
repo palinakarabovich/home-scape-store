@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { PRODUCTS_URL } from "../../utils/constants";
+import { PRODUCTS_ON_SALE_URL, PRODUCTS_URL } from "../../utils/constants";
 import { IDataLoading, IProduct } from "../../@types/types";
 
 interface IInitialState {
@@ -40,9 +40,9 @@ export const saleSlice = createSlice({
     });
     builder.addCase(fetchProductsOnSale.fulfilled, (state, action) => {
       if(action.payload.subcategory !== '') {
-        state.products = action.payload.productsData.filter((p: IProduct) => p.discount > 0).filter((p: IProduct) => p.subcategory === action.payload.subcategory)
+        state.products = action.payload.productsData.filter((p: IProduct) => p.subcategory === action.payload.subcategory)
       } else {
-        state.products = action.payload.productsData.filter((p: IProduct) => p.discount > 0);
+        state.products = action.payload.productsData;
       }
       state.categories = action.payload.productsData.filter((p: IProduct) => p.discount > 0).map((p: IProduct) => p.subcategory)
       state.loadingSale.status = false;
@@ -61,7 +61,7 @@ export const saleSlice = createSlice({
 
 export const fetchProductsOnSale = createAsyncThunk('sale/fetchProductsOnSale', async ({ subcategory }: IParams) => {
   try {
-    const res = await fetch(`${PRODUCTS_URL}`);
+    const res = await fetch(`${PRODUCTS_ON_SALE_URL}`);
     if (res.ok) {
       const productsData = await res.json();
       return {
