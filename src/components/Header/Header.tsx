@@ -65,14 +65,18 @@ const Header = () => {
           Contacts
         </Link>
       </nav>
-      <div className={styles.cart}>
-        <div className={styles.icon}>
-          {cartIcon}
+      <Link
+        to='/cart'
+      >
+        <div className={styles.cart}>
+          <div className={styles.icon}>
+            {cartIcon}
+          </div>
+          <div className={styles.quantity}>
+            2
+          </div>
         </div>
-        <div className={styles.quantity}>
-          2
-        </div>
-      </div>
+      </Link>
     </header>
   );
 };
