@@ -15,7 +15,7 @@ const ProductsList: React.FC<IProductsListProps> = ({ products }) => {
       {
         !loading.success 
           ? <>
-            {[...new Array(3)].map((_) => <ProductCardSkeleton />)}
+            {[...new Array(3)].map((_, index) => <ProductCardSkeleton key={index}/>)}
           </>
           : <>{products?.map((card) => (
             <ProductCard {...card} key={card.id} />
