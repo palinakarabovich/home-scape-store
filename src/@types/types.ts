@@ -41,3 +41,8 @@ export interface IRejectedActionPayload {
   name: string;
   stack?: string;
 }
+
+export interface IPurchase {
+  item: IProduct,
+  quantity: number
+}

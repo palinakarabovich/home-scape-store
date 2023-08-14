@@ -6,6 +6,29 @@
   width: 100%;
 }
 
+.cart_empty{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80vh;
+  flex-direction: column;
+}
+
+.cart_empty .title{
+  color: #bbb;
+}
+
+.cart_empty .link{
+  color: #bbb;
+  font-size: 20px;
+  transition: ease-in-out .3s color;
+}
+
+.cart_empty .link:hover{
+  color: #000;
+}
+
 .link{
   text-decoration: none;
   color: #000;

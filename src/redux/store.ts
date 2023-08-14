@@ -4,6 +4,7 @@ import categoriesSlice from './slices/categoriesSlice';
 import selectedProductSlice from './slices/selectedProductSlice';
 import modalSlice from './slices/modalSlice';
 import saleSlice from './slices/saleSlice';
+import cartSlice from './slices/cartSlice';
 
 const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ const store = configureStore({
     categories: categoriesSlice,
     selectedProduct: selectedProductSlice,
     modal: modalSlice,
-    sale: saleSlice
+    sale: saleSlice,
+    cart: cartSlice
   },
 })
 

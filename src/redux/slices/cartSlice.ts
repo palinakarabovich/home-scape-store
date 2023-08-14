@@ -1,11 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IDataLoading } from "../../@types/types";
+import { IDataLoading, IPurchase } from "../../@types/types";
 
 interface IInitialState {
+  purchases: Array<IPurchase>,
+  sum: number,
+  totalItems: number,
   loading: IDataLoading
 }
 
 const initialState: IInitialState = {
+  purchases: [],
+  sum: 0,
+  totalItems: 0,
   loading: {
     status: false,
     error: false,
@@ -19,7 +25,11 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addItemToCart: (state, action) => {
-
+      state.purchases.push({
+        item: action.payload,
+        quantity: 1
+      })
+      state.totalItems = state.totalItems + 1;
     },
   },
   extraReducers: (builder) => {

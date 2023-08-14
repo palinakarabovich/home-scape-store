@@ -8,6 +8,7 @@ const Header = () => {
 
   const { categories } = useAppSelector((store) => store.categories);
   const { pathname } = useLocation();
+  const { totalItems } = useAppSelector((store) => store.cart)
 
   return (
     <header className={styles.header}>
@@ -78,9 +79,11 @@ const Header = () => {
           <div className={styles.icon}>
             {cartIcon}
           </div>
-          <div className={styles.quantity}>
-            2
-          </div>
+          {
+            totalItems > 0 && <div className={styles.quantity}>
+              {totalItems}
+            </div>
+          }
         </div>
       </Link>
     </header>
