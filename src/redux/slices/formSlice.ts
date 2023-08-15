@@ -16,13 +16,13 @@ export const formSlice = createSlice({
   name: 'form',
   initialState,
   reducers: {
-    setValue: (state, action) => {
-      state.form[action.payload.type] = action.payload.value;
+    savePersonalData: (state, action) => {
+      state.form = action.payload;
     },
   },
 })
 
 
-export const { setValue } = formSlice.actions;
+export const { savePersonalData } = formSlice.actions;
 
 export default formSlice.reducer;
