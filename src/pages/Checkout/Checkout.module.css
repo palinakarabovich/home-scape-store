@@ -30,6 +30,21 @@
   border-radius: 50%;
 }
 
+.step_active{
+  background-color: #000;
+  color: #fff;
+}
+
+.step_previous{
+  background-color: #bbb;
+  color: #fff;
+  border-color: #bbb;
+}
+
+.step_previous + .line{
+  background-color: #bbb;
+}
+
 .step_text{
   font-size: 20px;
   width: 30px;
