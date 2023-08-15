@@ -1,0 +1,36 @@
+.form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 50px 0;
+}
+
+.block{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+}
+
+.input{
+  width: 80%;
+}
+
+.text{
+  width: 50%;
+  text-align: start;
+}
+
+.block + .text{
+  margin-top: 50px;
+}
