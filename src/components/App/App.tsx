@@ -12,7 +12,6 @@ const App = () => {
 
   React.useEffect(() => {
     const cart = localStorage.getItem('cart');
-    console.log(cart)
     if (cart) {
       const cartObject = JSON.parse(cart);
       dispatch(setCart(cartObject))

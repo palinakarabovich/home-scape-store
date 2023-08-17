@@ -4,6 +4,7 @@ import styles from './Checkout.module.css'
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { savePersonalData } from '../../redux/slices/formSlice';
 import CheckoutSelection from '../../components/CheckoutSelection/CheckoutSelection';
+import Summary from '../../components/Summary/Summary';
 
 const steps = [1, 2, 3];
 
@@ -14,7 +15,7 @@ const Checkout = () => {
   const dispatch = useAppDispatch();
 
   const handleStepForward = () => {
-    if(step === 1){
+    if (step === 1) {
       dispatch(savePersonalData(form));
     }
     setStep((pr) => pr + 1)
@@ -28,13 +29,12 @@ const Checkout = () => {
     <section className={styles.checkout}>
       <div className={styles.steps}>
         {
-          steps.map((s) => <>
+          steps.map((s) => <div key={s}>
             <div
               className={`${styles.step}
             ${step === s ? styles.step_active : ''}
             ${step > s ? styles.step_previous : ''}`
               }
-              key={s}
             >
               <p className={styles.step_text}>
                 {s}
@@ -44,18 +44,18 @@ const Checkout = () => {
               className={styles.line}
               style={s === steps.length ? { display: 'none' } : {}}
             />
-          </>
+          </div>
           )
         }
       </div>
       {
-        step === 1 && <Form form={form} setForm={setForm}/>
+        step === 1 && <Form form={form} setForm={setForm} />
       }
       {
         step === 2 && <CheckoutSelection />
       }
       {
-        step === 3 && <>Step 3</>
+        step === 3 && <Summary />
       }
       <div className={styles.group}>
         {

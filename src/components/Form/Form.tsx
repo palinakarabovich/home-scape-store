@@ -9,7 +9,6 @@ const Form: React.FC<IFormProps> = ({ form, setForm }) => {
       ...form,
       [e.target.id]: e.target.value
     })
-    console.log(form)
   }
 
   return (

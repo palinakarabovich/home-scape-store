@@ -1,15 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { IDelivery, IPayment } from "../../@types/types";
+import { deliveries } from "../../assets/deliveries";
+import { payments } from "../../assets/paymentMethods";
 
 interface IInitialState {
   form: {
-    [key: string] : string
+    [key: string]: string
   },
-  payment: string;
+  payment: IPayment;
+  delivery: IDelivery;
 }
 
 const initialState: IInitialState = {
   form: {},
-  payment: ''
+  payment: {
+    name: '',
+    images: []
+  },
+  delivery: {
+    name: '',
+    duration: '',
+    price: 0
+  }
 }
 
 export const formSlice = createSlice({
@@ -19,10 +31,16 @@ export const formSlice = createSlice({
     savePersonalData: (state, action) => {
       state.form = action.payload;
     },
+    saveDelivery: (state, action) => {
+      state.delivery = deliveries[action.payload];
+    },
+    savePaymentMethod: (state, action) => {
+      state.payment = payments[action.payload];
+    }
   },
 })
 
 
-export const { savePersonalData } = formSlice.actions;
+export const { savePersonalData, saveDelivery, savePaymentMethod } = formSlice.actions;
 
 export default formSlice.reducer;

@@ -1,4 +1,6 @@
-export const payments = [{
+import { IPayment } from "../@types/types";
+
+export const payments: Array<IPayment>= [{
   name: 'iDEAL',
   images: ['https://s1.thcdn.com/checkout/resources/images/9ee669b4fde94debc73dbd80ec8c24b1.svg']
 },

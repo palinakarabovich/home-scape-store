@@ -26,7 +26,6 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     setCart: (state, action) => {
-      console.log(action.payload)
       state.purchases = action.payload.purchases;
       state.loading = action.payload.loading;
       state.sum = action.payload.sum;
