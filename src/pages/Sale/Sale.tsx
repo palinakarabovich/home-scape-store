@@ -50,7 +50,7 @@ const Sale = () => {
         categories?.length > 0
           ? <ul className={styles.categories}>
             {
-              categories?.map((c) => <Category name={c} handleClick={onCategoryClick} isSelected={c === selectedCategory ? true : false} />)
+              categories?.map((c) => <Category name={c} handleClick={onCategoryClick} isSelected={c === selectedCategory ? true : false} key={c}/>)
             }
           </ul>
           : <div className={styles.container} />

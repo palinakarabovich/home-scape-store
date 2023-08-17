@@ -3,6 +3,7 @@ import Form from '../../components/Form/Form';
 import styles from './Checkout.module.css'
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { savePersonalData } from '../../redux/slices/formSlice';
+import CheckoutSelection from '../../components/CheckoutSelection/CheckoutSelection';
 
 const steps = [1, 2, 3];
 
@@ -51,7 +52,7 @@ const Checkout = () => {
         step === 1 && <Form form={form} setForm={setForm}/>
       }
       {
-        step === 2 && <>Step 2</>
+        step === 2 && <CheckoutSelection />
       }
       {
         step === 3 && <>Step 3</>
