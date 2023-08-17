@@ -26,6 +26,7 @@
   flex-direction: column;
   gap: 20px;
   width: 50%;
+  cursor: pointer;
 }
 
 .container{
@@ -35,9 +36,58 @@
   display: flex;
   padding: 30px 10px;
   box-sizing: border-box;
+  gap: 10px;
+  transition: ease-in-out .3s;
+  justify-content: flex-start;
+  align-items: center;
   gap: 10px
+}
+
+.container_checked{
+  border-color: #000;
+}
+
+.container:hover{
+  border-color: #000;
 }
 
 .image{
   height: 20px;
+}
+
+.checkbox{
+  display: none;
+}
+
+.icon{
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: .3s ease-in-out background-image;
+}
+
+.checkbox:checked + .icon{
+  background-image: url('https://cdn.pixabay.com/photo/2014/04/02/10/19/check-303494_1280.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.label{
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 600;
+  width: 20%;
+}
+
+.text{
+  width: 50%;
+  font-size: 15px;
+}
+
+.price{
+  font-weight: 600;
+  width: 20%;
 }
