@@ -28,8 +28,12 @@ const Checkout = () => {
   return (
     <section className={styles.checkout}>
       <div className={styles.steps}>
+        <div className={styles.line} style={{visibility: 'hidden'}} />
         {
-          steps.map((s) => <div key={s}>
+          steps.map((s) => <div
+            key={s}
+            className={styles.wrapper}
+          >
             <div
               className={`${styles.step}
             ${step === s ? styles.step_active : ''}
@@ -40,10 +44,9 @@ const Checkout = () => {
                 {s}
               </p>
             </div>
-            <div
-              className={styles.line}
-              style={s === steps.length ? { display: 'none' } : {}}
-            />
+            {
+              s !== steps.length && <div className={styles.line} />
+            }
           </div>
           )
         }
