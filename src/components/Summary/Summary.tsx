@@ -25,26 +25,34 @@ const Summary = () => {
         <div className={styles.options}>
           <div className={styles.address}>
             <h3 className={styles.category}>Your Address:</h3>
-            ADDRESS
+            <p className={styles.text}>{form.form.name.toUpperCase()} {form.form.surname.toUpperCase()}</p>
+            <p className={styles.text}>{form.form.street} {form.form.house}</p>
+            <p className={styles.text}>{form.form.city} {form.form.postcode}</p>
           </div>
           <div className={styles.delivery}>
             <h3 className={styles.category}>Delivery:</h3>
-            DELIVERY
+            <p className={styles.text}>{form.delivery.name.toUpperCase()}</p>
+            <p className={styles.text}>{form.delivery.duration}</p>
+          </div>
+          <div className={styles.contacts}>
+            <h3 className={styles.category}>Contact details:</h3>
+            <p className={styles.text}>{form.form.email}</p>
+            <p className={styles.text}>{form.form.telephone}</p>
           </div>
           <div className={styles.address}>
             <h3 className={styles.category}>Payment method:</h3>
-            PAYMENT
+            <p className={styles.text}>{form.payment.name.toUpperCase()}</p>
           </div>
         </div>
       </div>
       <div className={styles.sum}>
         <div className={styles.payment}>
-          <p className={styles.text}>Delivery:</p>
-          <p className={styles.number}>FREE</p>
+          <p className={styles.text}>Delivery costs:</p>
+          <p className={styles.text}>{form.delivery.price === 0 ? 'FREE' : form.delivery.price}</p>
         </div>
         <div className={styles.payment}>
-          <p className={styles.text}>Total to pay:</p>
-          <p className={styles.number}>1000000</p>
+          <p className={styles.highlight}>Total to pay:</p>
+          <p className={styles.text}>{cart.sum + form.delivery.price}</p>
         </div>
       </div>
     </section>

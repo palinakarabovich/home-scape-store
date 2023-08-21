@@ -29,7 +29,7 @@ const Form: React.FC<IFormProps> = ({ form, setForm }) => {
         </div>
         <div className={styles.container}>
           <label className={styles.label} htmlFor='telephone'>Phone number</label>
-          <input type='number' id='telephone' className={styles.input} onChange={handleChange} />
+          <input type='text' id='telephone' className={styles.input} onChange={handleChange} />
         </div>
       </div>
       <p className={styles.text}>Your address</p>
