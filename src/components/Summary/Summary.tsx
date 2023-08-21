@@ -11,7 +11,16 @@ const Summary = () => {
       <div className={styles.information}>
         <div className={styles.cart}>
           <h3 className={styles.category}>Your purchases:</h3>
-          CART
+          <ul className={styles.purchases}>
+            {
+              cart.purchases.map((p) => <li className={styles.card}>
+                <img className={styles.image} src={p.item.images[0]} alt={p.item.name} />
+                <p className={styles.name}>{p.item.name}</p>
+                <p className={styles.text}>x{p.quantity}</p>
+                <p className={styles.price}>{p.item.price * p.quantity} €</p>
+              </li>)
+            }
+          </ul>
         </div>
         <div className={styles.options}>
           <div className={styles.address}>
