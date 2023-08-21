@@ -69,7 +69,7 @@ const Checkout = () => {
             : <button className={styles.button}>&#8592; back to cart</button>
         }
         {
-          step === steps.length ? <button className={styles.button}>pay &#8594;</button>
+          step === steps.length ? <button className={styles.button_classic}>Pay</button>
             : <button
               className={styles.button}
               onClick={handleStepForward}
