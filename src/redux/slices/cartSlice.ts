@@ -90,7 +90,10 @@ export const cartSlice = createSlice({
       localStorage.setItem('cart', JSON.stringify(state))
     },
     cleanCart: (state) => {
-      state = initialState;
+      state.loading = initialState.loading;
+      state.purchases = [];
+      state.sum = 0;
+      state.totalItems = 0;
       localStorage.removeItem('cart');
     }
   },

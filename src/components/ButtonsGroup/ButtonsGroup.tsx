@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import styles from './ButtonsGroup.module.css';
@@ -13,6 +13,7 @@ const ButtonsGroup: React.FC<IButtonsGroupProps> = ({ handleStepForward }) => {
 
   const { step } = useAppSelector((store) => store.form)
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
 
   const handleStepBack = () => {
@@ -20,6 +21,7 @@ const ButtonsGroup: React.FC<IButtonsGroupProps> = ({ handleStepForward }) => {
   }
 
   const onPay = () => {
+    navigate('/thank-for-you-order');
     dispatch(cleanCart());
     dispatch(resetForm());
   }
@@ -37,7 +39,10 @@ const ButtonsGroup: React.FC<IButtonsGroupProps> = ({ handleStepForward }) => {
             className={styles.button}>&#8592; back to cart</Link>
       }
       {
-        step === steps.length ? <button className={styles.button_classic}>Pay</button>
+        step === steps.length ? <button
+          className={styles.button_classic}
+          onClick={onPay}
+        >Pay</button>
           : <button
             className={styles.button}
             onClick={handleStepForward}

@@ -52,7 +52,10 @@ export const formSlice = createSlice({
       state.step = state.step - 1;
     },
     resetForm: (state) => {
-      state = initialState;
+      state.delivery = initialState.delivery;
+      state.form = initialState.form;
+      state.payment = initialState.payment;
+      state.step = -1;
       localStorage.removeItem('payment');
       localStorage.removeItem('delivery');
       localStorage.removeItem('form');

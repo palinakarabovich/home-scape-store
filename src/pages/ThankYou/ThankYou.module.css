@@ -1,0 +1,28 @@
+.thanks{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 10px;
+  box-sizing: border-box;
+  gap: 30px;
+  flex-direction: column;
+}
+
+.title{
+  margin: 0;
+  line-height: 1.7;
+  font-size: 30px;
+}
+
+.text{
+  font-size: 20px;
+  margin: 0;
+}
+
+.image{
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  filter: grayscale()
+}

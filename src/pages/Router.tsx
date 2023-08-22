@@ -15,6 +15,7 @@ import ProductImage from "../components/ProductImage/ProductImage";
 import Sale from "./Sale/Sale";
 import Cart from "./Cart/Cart";
 import Checkout from "./Checkout/Checkout";
+import ThankYou from "./ThankYou/ThankYou";
 
 const loaderStyles = {
   width: '100%',
@@ -63,6 +64,7 @@ const Router = () => {
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/checkout' element={<Checkout />} />
+            <Route path='/thank-for-you-order' element={<ThankYou />} />
             <Route path='*' element={<PageNotFound />} />
           </Routes>
           : <div style={loaderStyles} >
