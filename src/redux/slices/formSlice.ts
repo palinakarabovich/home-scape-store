@@ -23,32 +23,44 @@ const initialState: IInitialState = {
     duration: '',
     price: 0
   },
-  step: 1
+  step: -1
 }
 
 export const formSlice = createSlice({
   name: 'form',
   initialState,
   reducers: {
+    startCheckout: (state) => {
+      state.step = 1;
+    },
     savePersonalData: (state, action) => {
       state.form = action.payload;
+      localStorage.setItem('form', JSON.stringify(action.payload))
     },
     saveDelivery: (state, action) => {
       state.delivery = deliveries[action.payload];
+      localStorage.setItem('delivery', action.payload)
     },
     savePaymentMethod: (state, action) => {
       state.payment = payments[action.payload];
+      localStorage.setItem('payment', action.payload)
     },
     makeStepForward: (state) => {
       state.step = state.step + 1;
     },
     makeStepBack: (state) => {
       state.step = state.step - 1;
+    },
+    resetForm: (state) => {
+      state = initialState;
+      localStorage.removeItem('payment');
+      localStorage.removeItem('delivery');
+      localStorage.removeItem('form');
     }
   },
 })
 
 
-export const { savePersonalData, saveDelivery, savePaymentMethod, makeStepForward, makeStepBack } = formSlice.actions;
+export const { savePersonalData, saveDelivery, savePaymentMethod, makeStepForward, makeStepBack, startCheckout, resetForm } = formSlice.actions;
 
 export default formSlice.reducer;

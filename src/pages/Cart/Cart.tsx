@@ -1,14 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './Cart.module.css'
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { IProduct, IPurchase } from '../../@types/types';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { decreaseQuantity, increaseQuantity, removeItem } from '../../redux/slices/cartSlice';
+import { startCheckout } from '../../redux/slices/formSlice';
 
 const Cart = () => {
 
   const { purchases, sum } = useAppSelector((store) => store.cart);
   const dispatch = useAppDispatch();
+  let navigate = useNavigate();
 
   const handlePlusClick = (product: IPurchase) => {
     dispatch(increaseQuantity(product.item))
@@ -21,6 +23,11 @@ const Cart = () => {
     else {
       dispatch(removeItem(product.item))
     }
+  }
+
+  const onCheckout = () => {
+    dispatch(startCheckout());
+    navigate('/checkout')
   }
 
   return (
@@ -82,9 +89,9 @@ const Cart = () => {
               >
                 Back to Catalog
               </Link>
-              <Link
-                to='/checkout'
-                className={styles.button}>Checkout</Link>
+              <button
+                onClick={onCheckout}
+                className={styles.button}>Checkout</button>
             </div>
           </section>
           : <section className={styles.cart_empty}>

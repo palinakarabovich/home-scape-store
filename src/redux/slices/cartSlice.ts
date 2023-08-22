@@ -88,6 +88,10 @@ export const cartSlice = createSlice({
       state.sum = state.sum - action.payload.price;
       state.totalItems = state.totalItems - 1;
       localStorage.setItem('cart', JSON.stringify(state))
+    },
+    cleanCart: (state) => {
+      state = initialState;
+      localStorage.removeItem('cart');
     }
   },
   extraReducers: (builder) => {
@@ -127,6 +131,6 @@ export const fetchPlaceOrder = createAsyncThunk('cart/fetchPlaceOrder', async ()
 })
 
 
-export const { addItemToCart, setCart, increaseQuantity, decreaseQuantity, removeItem } = cartSlice.actions;
+export const { addItemToCart, setCart, increaseQuantity, decreaseQuantity, removeItem, cleanCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

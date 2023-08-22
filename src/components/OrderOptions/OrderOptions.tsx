@@ -18,7 +18,7 @@ const OrderOptions = () => {
   const { delivery, payment } = useAppSelector((store) => store.form);
 
   React.useEffect(() => {
-    if (delivery.name.length > 0 && payment.name.length > 0) {
+    if (delivery?.name.length > 0 && payment?.name.length > 0) {
       const selectedPayment = payments.map((p) => p.name).indexOf(payment.name);
       const selectedDelivery = deliveries.map((d) => d.name).indexOf(delivery.name);
       setPayment(selectedPayment);

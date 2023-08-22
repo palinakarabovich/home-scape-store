@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import styles from './ButtonsGroup.module.css';
-import { makeStepBack } from '../../redux/slices/formSlice';
+import { makeStepBack, resetForm } from '../../redux/slices/formSlice';
 import React from 'react';
 import { IButtonsGroupProps } from './types';
+import { cleanCart } from '../../redux/slices/cartSlice';
 
 const steps = [1, 2, 3];
 
@@ -16,6 +17,11 @@ const ButtonsGroup: React.FC<IButtonsGroupProps> = ({ handleStepForward }) => {
 
   const handleStepBack = () => {
     dispatch(makeStepBack());
+  }
+
+  const onPay = () => {
+    dispatch(cleanCart());
+    dispatch(resetForm());
   }
 
 
