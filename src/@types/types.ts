@@ -46,3 +46,13 @@ export interface IPurchase {
   item: IProduct,
   quantity: number
 }
+
+export interface IPayment {
+  name: string;
+  images: Array<string>
+}
+export interface IDelivery {
+  name: string;
+  price: number;
+  duration: string
+}

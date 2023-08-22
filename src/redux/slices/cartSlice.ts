@@ -26,7 +26,6 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     setCart: (state, action) => {
-      console.log(action.payload)
       state.purchases = action.payload.purchases;
       state.loading = action.payload.loading;
       state.sum = action.payload.sum;
@@ -89,6 +88,13 @@ export const cartSlice = createSlice({
       state.sum = state.sum - action.payload.price;
       state.totalItems = state.totalItems - 1;
       localStorage.setItem('cart', JSON.stringify(state))
+    },
+    cleanCart: (state) => {
+      state.loading = initialState.loading;
+      state.purchases = [];
+      state.sum = 0;
+      state.totalItems = 0;
+      localStorage.removeItem('cart');
     }
   },
   extraReducers: (builder) => {
@@ -128,6 +134,6 @@ export const fetchPlaceOrder = createAsyncThunk('cart/fetchPlaceOrder', async ()
 })
 
 
-export const { addItemToCart, setCart, increaseQuantity, decreaseQuantity, removeItem } = cartSlice.actions;
+export const { addItemToCart, setCart, increaseQuantity, decreaseQuantity, removeItem, cleanCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

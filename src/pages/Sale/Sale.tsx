@@ -11,7 +11,7 @@ const type = 'sale';
 
 const Sale = () => {
   const dispatch = useAppDispatch();
-  const {products, categories} = useAppSelector((store) => store.sale)
+  const {products, categories, loadingSale} = useAppSelector((store) => store.sale)
   const [selectedCategory, setSelectedCategory] = React.useState('');
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -50,12 +50,12 @@ const Sale = () => {
         categories?.length > 0
           ? <ul className={styles.categories}>
             {
-              categories?.map((c) => <Category name={c} handleClick={onCategoryClick} isSelected={c === selectedCategory ? true : false} />)
+              categories?.map((c) => <Category name={c} handleClick={onCategoryClick} isSelected={c === selectedCategory ? true : false} key={c}/>)
             }
           </ul>
           : <div className={styles.container} />
       }
-      <ProductsList products={products} />
+      <ProductsList products={products} loading={loadingSale.success}/>
     </section>
   );
 }

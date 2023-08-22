@@ -1,0 +1,121 @@
+.summary{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 10px;
+  width: 100%;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.title{
+  font-size: 30px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.cart{
+  width: 100%;
+}
+
+.category{
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.information{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 70%;
+  gap: 50px;
+}
+
+.sum{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 50px 0;
+  padding-top: 50px;
+  box-sizing: border-box;
+  border-top: 2px solid rgba(211, 211, 211, .3);
+}
+
+.payment{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text{
+  font-size: 15px;
+  margin: 0;
+}
+
+.name{
+  width: 70%;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+.price{
+  font-size: 15px;
+  font-weight: 700;
+  width: 10%;
+}
+
+.options{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  justify-self: flex-start;
+}
+
+.purchases{
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px
+}
+
+.card{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgba(211, 211, 211, .1);
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  gap: 20px
+}
+
+.image{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5px;
+}
+
+.highlight{
+  font-size: 25px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.highlight + .text{
+  font-size: 25px;
+  font-weight: 700;
+  margin: 0;
+}
+
+

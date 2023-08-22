@@ -5,15 +5,12 @@ import { IProductsListProps } from './types';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import ProductCardSkeleton from '../ProductCardSkeleton/ProductCardSkeleton';
 
-const ProductsList: React.FC<IProductsListProps> = ({ products }) => {
-
-  const { loading } = useAppSelector((store) => store.products)
-  const { loadingSale } = useAppSelector((store) => store.sale)
+const ProductsList: React.FC<IProductsListProps> = ({ products, loading }) => {
 
   return (
     <div className={styles.products}>
       {
-        !loading.success 
+        !loading 
           ? <>
             {[...new Array(3)].map((_, index) => <ProductCardSkeleton key={index}/>)}
           </>
