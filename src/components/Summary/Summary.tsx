@@ -1,4 +1,5 @@
 import { useAppSelector } from '../../hooks/useAppSelector';
+import ButtonsGroup from '../ButtonsGroup/ButtonsGroup';
 import styles from './Summary.module.css'
 
 const Summary = () => {
@@ -55,6 +56,7 @@ const Summary = () => {
           <p className={styles.text}>{cart.sum + form.delivery.price}</p>
         </div>
       </div>
+      <ButtonsGroup />
     </section>
   );
 }

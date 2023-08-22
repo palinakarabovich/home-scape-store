@@ -1,24 +1,58 @@
 import React from 'react';
-import styles from './CheckoutSelection.module.css'
+import styles from './OrderOptions.module.css'
 import { payments } from '../../assets/paymentMethods';
 import { deliveries } from '../../assets/deliveries';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { saveDelivery, savePaymentMethod } from '../../redux/slices/formSlice';
+import { makeStepForward, saveDelivery, savePaymentMethod } from '../../redux/slices/formSlice';
+import ButtonsGroup from '../ButtonsGroup/ButtonsGroup';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import { IPayment } from '../../@types/types';
 
-const CheckoutSelection = () => {
+const OrderOptions = () => {
 
-  const [payment, setPayment] = React.useState<number>(-1);
-  const [delivery, setDelivery] = React.useState<number>(-1);
+  const [paymentState, setPayment] = React.useState<number>(-1);
+  const [deliveryState, setDelivery] = React.useState<number>(-1);
   const dispatch = useAppDispatch();
+  const [error, setError] = React.useState<string>('');
+
+  const { delivery, payment } = useAppSelector((store) => store.form);
+
+  React.useEffect(() => {
+    if (delivery.name.length > 0 && payment.name.length > 0) {
+      const selectedPayment = payments.map((p) => p.name).indexOf(payment.name);
+      const selectedDelivery = deliveries.map((d) => d.name).indexOf(delivery.name);
+      setPayment(selectedPayment);
+      setDelivery(selectedDelivery);
+    }
+  }, [])
 
   const handleDeliveryClick = (index: number) => {
+    if (error === 'Choose the delivery option') {
+      setError('');
+    }
     setDelivery(index);
     dispatch(saveDelivery(index));
   }
 
   const handlePaymentClick = (index: number) => {
+    if (error === 'Choose the payment option') {
+      setError('')
+    }
     setPayment(index);
     dispatch(savePaymentMethod(index));
+  }
+
+  const handelForwardClick = () => {
+    if (deliveryState === -1 && paymentState === -1) {
+      setError('Choose the best options for you first')
+    } else if (deliveryState === -1) {
+      setError('Choose the delivery option')
+    } else if (paymentState === -1) {
+      setError('Choose the payment option')
+    } else {
+      dispatch(makeStepForward());
+      setError('');
+    }
   }
 
   return (
@@ -26,11 +60,12 @@ const CheckoutSelection = () => {
       <h2 className={styles.title}>
         Select your payment method and delivery:
       </h2>
+      <p className={styles.error}>{error}</p>
       <div className={styles.options}>
         <div className={styles.group}>
           {
             payments.map((p, index) => <div
-              className={`${styles.container} ${payment === index ? styles.container_checked : ''}`}
+              className={`${styles.container} ${paymentState === index ? styles.container_checked : ''}`}
               onClick={(e) => {
                 e.stopPropagation()
                 handlePaymentClick(index)
@@ -41,7 +76,7 @@ const CheckoutSelection = () => {
                 type='checkbox'
                 id={p.name}
                 className={styles.checkbox}
-                checked={payment === index ? true : false}
+                checked={paymentState === index ? true : false}
                 onChange={(e) => {
                   e.stopPropagation()
                   handlePaymentClick(index)
@@ -67,7 +102,7 @@ const CheckoutSelection = () => {
         <div className={styles.group}>
           {
             deliveries.map((d, index) => <div
-              className={`${styles.container} ${delivery === index ? styles.container_checked : ''}`}
+              className={`${styles.container} ${deliveryState === index ? styles.container_checked : ''}`}
               onClick={(e) => {
                 e.stopPropagation();
                 handleDeliveryClick(index)
@@ -78,7 +113,7 @@ const CheckoutSelection = () => {
                 type='checkbox'
                 id={d.name}
                 className={styles.checkbox}
-                checked={delivery === index ? true : false}
+                checked={deliveryState === index ? true : false}
                 onChange={(e) => {
                   e.stopPropagation();
                   handleDeliveryClick(index)
@@ -97,8 +132,9 @@ const CheckoutSelection = () => {
           }
         </div>
       </div>
+      <ButtonsGroup handleStepForward={handelForwardClick} />
     </section>
   );
 }
 
-export default CheckoutSelection;
+export default OrderOptions;

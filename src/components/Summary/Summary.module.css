@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   padding: 50px 10px;
-  width: 70%;
+  width: 100%;
   flex-direction: column;
   margin: 0 auto;
 }
@@ -28,14 +28,14 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  width: 100%;
+  width: 70%;
   gap: 50px;
 }
 
 .sum{
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 70%;
   margin: 50px 0;
   padding-top: 50px;
   box-sizing: border-box;

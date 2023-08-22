@@ -6,10 +6,11 @@ import { convertErrorMessageToString } from '../../utils/convertErrorMessageToSt
 import ButtonsGroup from '../ButtonsGroup/ButtonsGroup';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { makeStepForward, savePersonalData } from '../../redux/slices/formSlice';
+import { useAppSelector } from '../../hooks/useAppSelector';
 
 const Form = () => {
 
-  const [form, setForm] = React.useState({});
+  const { form } = useAppSelector((store) => store.form)
 
   const {
     register,
@@ -169,7 +170,7 @@ const Form = () => {
           </div>
         </div>
       </form>
-      <ButtonsGroup handleStepForward={handleSubmit(onSubmit)}/>
+      <ButtonsGroup handleStepForward={handleSubmit(onSubmit)} />
     </section>
   );
 }
