@@ -82,7 +82,9 @@ const Cart = () => {
               >
                 Back to Catalog
               </Link>
-              <button className={styles.button}>Checkout</button>
+              <Link
+                to='/checkout'
+                className={styles.button}>Checkout</Link>
             </div>
           </section>
           : <section className={styles.cart_empty}>

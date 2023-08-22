@@ -76,6 +76,7 @@ width: 100%;
   color: #bbb;;
   transition: .3s ease-in-out background-color;
   background-color: transparent;
+  text-decoration: none;
 }
 
 .group{

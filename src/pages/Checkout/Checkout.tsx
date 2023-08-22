@@ -5,6 +5,7 @@ import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { savePersonalData } from '../../redux/slices/formSlice';
 import CheckoutSelection from '../../components/CheckoutSelection/CheckoutSelection';
 import Summary from '../../components/Summary/Summary';
+import { Link } from 'react-router-dom';
 
 const steps = [1, 2, 3];
 
@@ -28,7 +29,7 @@ const Checkout = () => {
   return (
     <section className={styles.checkout}>
       <div className={styles.steps}>
-        <div className={styles.line} style={{visibility: 'hidden'}} />
+        <div className={styles.line} style={{ visibility: 'hidden' }} />
         {
           steps.map((s) => <div
             key={s}
@@ -66,7 +67,9 @@ const Checkout = () => {
             className={styles.button}
             onClick={handleStepBack}
           > &#8592; previous step</button>
-            : <button className={styles.button}>&#8592; back to cart</button>
+            : <Link
+              to='/cart'
+              className={styles.button}>&#8592; back to cart</Link>
         }
         {
           step === steps.length ? <button className={styles.button_classic}>Pay</button>

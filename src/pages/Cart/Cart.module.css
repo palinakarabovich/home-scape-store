@@ -154,6 +154,7 @@
   color: #fff;
   transition: .3s ease-in-out background-color;
   background-color: #000;
+  text-decoration: none;
 }
 
 .button:hover{
