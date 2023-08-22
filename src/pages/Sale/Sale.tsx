@@ -11,7 +11,7 @@ const type = 'sale';
 
 const Sale = () => {
   const dispatch = useAppDispatch();
-  const {products, categories} = useAppSelector((store) => store.sale)
+  const {products, categories, loadingSale} = useAppSelector((store) => store.sale)
   const [selectedCategory, setSelectedCategory] = React.useState('');
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -55,7 +55,7 @@ const Sale = () => {
           </ul>
           : <div className={styles.container} />
       }
-      <ProductsList products={products} />
+      <ProductsList products={products} loading={loadingSale.success}/>
     </section>
   );
 }

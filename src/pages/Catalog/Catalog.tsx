@@ -11,7 +11,7 @@ import { useSearchParams } from 'react-router-dom';
 
 const Catalog: React.FC<ICatalog> = ({ type }) => {
 
-  const { products } = useAppSelector((store) => store.products);
+  const { products, loading } = useAppSelector((store) => store.products);
   const { categories } = useAppSelector((store) => store.categories)
   const dispatch = useAppDispatch();
   const [searchParams, _] = useSearchParams();
@@ -43,7 +43,7 @@ const Catalog: React.FC<ICatalog> = ({ type }) => {
           ? <CategoriesPreview />
           : <CategoriesList categories={categories}/>
       }
-      <ProductsList products={products[type]} />
+      <ProductsList products={products[type]} loading={loading.success}/>
     </section>
   );
 }
