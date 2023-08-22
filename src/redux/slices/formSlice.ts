@@ -9,6 +9,7 @@ interface IInitialState {
   },
   payment: IPayment;
   delivery: IDelivery;
+  step: number
 }
 
 const initialState: IInitialState = {
@@ -21,7 +22,8 @@ const initialState: IInitialState = {
     name: '',
     duration: '',
     price: 0
-  }
+  },
+  step: 1
 }
 
 export const formSlice = createSlice({
@@ -36,11 +38,17 @@ export const formSlice = createSlice({
     },
     savePaymentMethod: (state, action) => {
       state.payment = payments[action.payload];
+    },
+    makeStepForward: (state) => {
+      state.step = state.step + 1;
+    },
+    makeStepBack: (state) => {
+      state.step = state.step - 1;
     }
   },
 })
 
 
-export const { savePersonalData, saveDelivery, savePaymentMethod } = formSlice.actions;
+export const { savePersonalData, saveDelivery, savePaymentMethod, makeStepForward, makeStepBack } = formSlice.actions;
 
 export default formSlice.reducer;

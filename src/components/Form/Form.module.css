@@ -1,4 +1,4 @@
-.form{
+.form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,7 +7,7 @@
   margin: 0 auto;
 }
 
-.info{
+.info {
   width: 100%;
   display: flex;
   align-items: center;
@@ -17,13 +17,13 @@
   gap: 30px;
 }
 
-.title{
+.title {
   font-size: 30px;
   line-height: 1.7;
   margin: 0;
 }
 
-.block{
+.block {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,7 +31,7 @@
   row-gap: 20px;
 }
 
-.container{
+.container {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -39,7 +39,7 @@
   width: 50%;
 }
 
-.input{
+.input {
   width: 95%;
   border-radius: 5px;
   border: none;
@@ -50,11 +50,20 @@
   font-size: 15px;
 }
 
-.input:focus{
+.input:focus {
   outline-color: rgba(211, 211, 211, .7);
 }
 
-.text{
+.input_error {
+  background-color: rgba(255, 41, 50, .1);
+
+}
+
+.input_error:focus {
+  outline-color: rgba(255, 41, 50, .3);
+}
+
+.text {
   width: 100%;
   text-align: start;
   color: #bbb;
@@ -62,10 +71,19 @@
   margin: 10px 0;
 }
 
-.label{
+.label {
   font-size: 15px;
 }
 
-.block + .text{
+.block+.text {
   margin-top: 50px;
+}
+
+.error{
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.7;
+  color: rgb(255, 41, 50);
+  margin-bottom: 5px;
+  height: 18px;
 }

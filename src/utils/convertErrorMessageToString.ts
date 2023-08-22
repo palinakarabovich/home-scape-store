@@ -1,0 +1,1 @@
+export const convertErrorMessageToString = (err: any) => JSON.stringify(err).replaceAll('"', '');
