@@ -44,6 +44,12 @@ const Summary = () => {
             <h3 className={styles.category}>Payment method:</h3>
             <p className={styles.text}>{form.payment.name.toUpperCase()}</p>
           </div>
+          {
+            cart.isPromo && <div className={styles.address}>
+              <h3 className={styles.category}>Promotion:</h3>
+              <p className={styles.text}>CODE: {cart.selectedPromo.toLocaleUpperCase()}</p>
+            </div>
+          }
         </div>
       </div>
       <div className={styles.sum}>

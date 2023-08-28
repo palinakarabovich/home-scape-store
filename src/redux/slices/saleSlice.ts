@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { PRODUCTS_ON_SALE_URL, PRODUCTS_URL } from "../../utils/constants";
+import { PRODUCTS_ON_SALE_URL } from "../../utils/constants";
 import { IDataLoading, IProduct } from "../../@types/types";
 
 interface IInitialState {

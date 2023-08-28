@@ -71,8 +71,8 @@ const Subscription = () => {
       {
         isOpen && <ModalOverlay>
           <div className={styles.background}>
-            <p className={styles.text}>Thank you for your subscription!</p>
-            <p className={styles.text}>Use code <span className={styles.code}>FAMILY</span> to get additional 10% discount.</p>
+            <h3 className={styles.text}>Welcome to our family!</h3>
+            <p className={styles.text}>Use promocode <span className={styles.code}>FAMILY</span> to get additional 10% discount.</p>
             {BALLON_ICON}
           </div>
         </ModalOverlay>
