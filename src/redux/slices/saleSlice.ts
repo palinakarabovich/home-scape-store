@@ -5,7 +5,7 @@ import { IDataLoading, IProduct } from "../../@types/types";
 interface IInitialState {
   products: Array<IProduct>,
   categories: Array<string>,
-  loadingSale: IDataLoading
+  loadingSale: IDataLoading,
 }
 
 const initialState: IInitialState = {

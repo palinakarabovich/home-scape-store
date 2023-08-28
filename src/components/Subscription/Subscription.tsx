@@ -7,7 +7,7 @@ import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { openModal } from '../../redux/slices/modalSlice';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import ModalOverlay from '../ModalOverlay/ModalOverlay';
-import { FIREWORK_ICON } from '../../utils/icons';
+import { BALLON_ICON, FIREWORK_ICON } from '../../utils/icons';
 
 const Subscription = () => {
 
@@ -15,8 +15,13 @@ const Subscription = () => {
   const dispatch = useAppDispatch();
   const { isOpen } = useAppSelector((store) => store.modal);
 
+  React.useEffect(() => {
+      setEmail('');
+  }, [isOpen])
+
   const {
     register,
+    reset,
     formState: { errors },
     handleSubmit,
   } = useForm<IFormValues>({
@@ -26,9 +31,10 @@ const Subscription = () => {
     }
   })
 
+
   const onSubmit = () => {
-    setEmail('');
     dispatch(openModal());
+    reset();
   }
 
   return (
@@ -65,8 +71,9 @@ const Subscription = () => {
       {
         isOpen && <ModalOverlay>
           <div className={styles.background}>
-            <p className={styles.text}>Your subscription has been successful!</p>
-            {FIREWORK_ICON}
+            <p className={styles.text}>Thank you for your subscription!</p>
+            <p className={styles.text}>Use code <span className={styles.code}>FAMILY</span> to get additional 10% discount.</p>
+            {BALLON_ICON}
           </div>
         </ModalOverlay>
       }

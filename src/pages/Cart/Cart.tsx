@@ -1,16 +1,19 @@
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './Cart.module.css'
 import { useAppSelector } from '../../hooks/useAppSelector';
-import { IProduct, IPurchase } from '../../@types/types';
+import { IPurchase } from '../../@types/types';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { decreaseQuantity, increaseQuantity, removeItem } from '../../redux/slices/cartSlice';
+import { decreaseQuantity, increaseQuantity, removeItem, setPromo } from '../../redux/slices/cartSlice';
 import { startCheckout } from '../../redux/slices/formSlice';
+import React from 'react';
 
 const Cart = () => {
 
-  const { purchases, sum } = useAppSelector((store) => store.cart);
+  const { purchases, sum, validPromo, isPromo, selectedPromo } = useAppSelector((store) => store.cart);
   const dispatch = useAppDispatch();
   let navigate = useNavigate();
+  const [isError, setError] = React.useState<boolean>(false);
+  const [promocode, setPromocode] = React.useState<string>('');
 
   const handlePlusClick = (product: IPurchase) => {
     dispatch(increaseQuantity(product.item))
@@ -30,12 +33,34 @@ const Cart = () => {
     navigate('/checkout')
   }
 
+  React.useEffect(() => {
+    if(isPromo){
+      setPromocode(selectedPromo)
+    }
+  }, [])
+
+  React.useEffect(() => {
+    if (!isPromo && promocode !== '') {
+      if (validPromo.some((v) => v === promocode)) {
+        dispatch(setPromo(promocode));
+        setError(false);
+      } else {
+        setError(true);
+      }
+    }
+  }, [promocode])
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPromocode(e.target.value.toLowerCase());
+  }
+
   return (
     <>
       {
         purchases && purchases.length !== 0
           ? <section className={styles.cart}>
             <h2 className={styles.title}>Your purchase{purchases.length > 1 && 's'}:</h2>
+            {isPromo && <p className={styles.warning}>Promocode has been successfully activated!</p>}
             <ul className={styles.list}>
               {purchases.map((product) => <li
                 className={styles.card}
@@ -78,6 +103,17 @@ const Cart = () => {
                 <p className={styles.price}>{product.item.price * product.quantity} €</p>
               </li>)}
             </ul>
+            <div className={styles.promo}>
+              <p className={styles.text}>PROMOCODE:</p>
+              <input
+                type='text'
+                className={styles.input}
+                value={promocode}
+                onChange={handleInputChange}
+                disabled={isPromo}
+              />
+              <p className={styles.error} style={isError ? { visibility: 'visible' } : { visibility: 'hidden' }}>No valid</p>
+            </div>
             <div className={styles.info}>
               <p className={styles.text}>Total:</p>
               <p className={styles.text}>{sum} €</p>
