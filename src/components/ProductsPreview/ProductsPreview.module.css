@@ -12,6 +12,7 @@
   font-size: 50px;
   font-weight: 700;
   margin: 0;
+  text-transform: uppercase;
 }
 
 .products{
@@ -34,4 +35,25 @@
 
 .link:hover{
   color: #000;
+}
+
+@media screen and (max-width: 600px) {
+  .preview{
+    width: 100%;
+    padding-top: 50px;
+  }
+
+  .title{
+    font-size: 30px;
+  }
+
+  .products{
+    align-items: center;
+    justify-content: center;
+    row-gap: 50px;
+  }
+
+  .link{
+    font-size: 15px;
+  }
 }

@@ -100,3 +100,24 @@
 .code{
   font-weight: 700;
 }
+
+@media screen and (max-width: 600px) {
+  .subscription{
+    padding: 100px 0;
+  }
+
+  .title{
+    font-size: 30px;
+    text-align: center;
+    width: 80%;
+  }
+
+  .text{
+    font-size: 15px;
+    margin-top: 20px;
+  }
+
+  .input{
+    font-size: 15px;
+  }
+}

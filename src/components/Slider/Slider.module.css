@@ -20,3 +20,14 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 600px) {
+  .title{
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .background{
+    height: 60vh;
+  }
+}

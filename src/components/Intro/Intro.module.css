@@ -18,3 +18,21 @@ padding: 150px 10px;
   font-weight: 100;
   line-height: 1.7;
 }
+
+
+@media screen and (max-width: 600px) {
+  .intro{
+    padding: 50px 10px;
+    width: 80%;
+    box-sizing: border-box;
+  }
+
+  .moto{
+    font-size: 30px;
+  }
+
+  .description{
+    font-size: 15px;
+    margin: 20px 0;
+  }
+}

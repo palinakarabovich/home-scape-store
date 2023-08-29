@@ -124,3 +124,9 @@
     font-size: 12px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .image{
+    margin-bottom: 0;
+  }
+}
