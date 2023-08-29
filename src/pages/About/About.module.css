@@ -149,6 +149,10 @@
   margin: 0;
 }
 
+.card_text{
+  font-size: 15px;
+}
+
 .text{
   font-weight: 300;
   font-size: 15px;
@@ -177,3 +181,67 @@
 .story .container {
   padding: 100px 0 50px;
 }
+
+@media screen and (max-width: 700px) {
+  .background{
+    height: 40vh;
+  }
+
+  .about{
+    margin-top: 10vh;
+  }
+
+  .page{
+    font-size: 40px;
+  }
+
+  .container{
+    padding: 40px 10px;
+  }
+
+  .title{
+    font-size: 30px;
+  }
+
+  .card_title{
+    font-size: 15px;
+  }
+
+  .text{
+    font-size: 12px;
+  }
+
+  .card_text{
+    font-size: 12px;
+  }
+
+  .text_main{
+    font-size: 15px;
+  }
+
+  .image{
+    width: 100px;
+    height: 100px;
+  }
+
+  .text_ending{
+    font-size: 12px;
+  }
+
+  .photo_section{
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .list{
+    gap: 10px;
+  }
+
+  .card{
+    width: 45%;
+  }
+
+  .story .container{
+    padding: 50px 0;
+  }
+} 

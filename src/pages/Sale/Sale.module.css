@@ -26,3 +26,15 @@
   width: 100px;
   height: 45px;
 }
+
+@media screen and (max-width: 600px) {
+  .title{
+    font-size: 30px;
+  }
+
+  .categories{
+    flex-wrap: wrap;
+    font-size: 12px;
+    gap: 10px
+  }
+}

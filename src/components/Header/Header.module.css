@@ -124,3 +124,11 @@
     transform: none;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .cart{
+    position: fixed;
+    bottom: 100px;
+    top: auto
+  }
+}
