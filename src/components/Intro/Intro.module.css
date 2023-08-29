@@ -20,7 +20,7 @@ padding: 150px 10px;
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .intro{
     padding: 50px 10px;
     width: 80%;

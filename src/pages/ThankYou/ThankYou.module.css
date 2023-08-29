@@ -12,11 +12,15 @@
   margin: 0;
   line-height: 1.7;
   font-size: 30px;
+  width: 95%;
+  text-align: center;
 }
 
 .text{
+  width: 95%;
   font-size: 20px;
   margin: 0;
+  text-align: center;
 }
 
 .image{
@@ -25,4 +29,23 @@
   height: 300px;
   object-fit: cover;
   filter: grayscale()
+}
+
+@media screen and (max-width: 600px) {
+  .thanks{
+    gap: 20px;
+  }
+
+  .title{
+    font-size: 20px;
+  }
+
+  .text{
+    font-size: 15px;
+  }
+
+  .image{
+    width: 200px;
+    height: 200px;
+  }
 }

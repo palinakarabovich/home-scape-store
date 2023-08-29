@@ -13,11 +13,22 @@ const ProductsPreview: React.FC<IProductPreviewProps> = ({ type }) => {
 
   const dispatch = useAppDispatch();
   const { products, loading } = useAppSelector((store) => store.products);
+  const [size, setSize] = React.useState([window.innerWidth, window.innerHeight]);
+
+  React.useEffect(() => {
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
 
   React.useEffect(() => {
     const query = `category=${type}`;
     dispatch(fetchProducts({ query, type }))
   }, [])
+
+  const updateSize = () => {
+    setSize([window.innerWidth, window.innerHeight]);
+    console.log(size)
+  }
 
   return (
     <section className={styles.preview}>
@@ -25,13 +36,23 @@ const ProductsPreview: React.FC<IProductPreviewProps> = ({ type }) => {
       {loading.success && !loading.status ?
         <div className={styles.products}>
           {
-            products[type]?.map((p, index) => index < 3 && (
-              <ProductCard key={p.id} {...p} />
-            ))
+            size[0] > 1350 ?
+              products[type]?.map((p, index) => index < 3 && (
+                <ProductCard key={p.id} {...p} />
+              ))
+              : products[type]?.map((p, index) => index < 2 && (
+                <ProductCard key={p.id} {...p} />
+              ))
+          }
+          {
+
           }
         </div>
         : <div className={styles.products}>
-          {[...new Array(3)].map((el) => <ProductCardSkeleton />)}
+          {
+            size[0] > 1350 ?
+              [...new Array(3)].map((el) => <ProductCardSkeleton />)
+              : [...new Array(2)].map((el) => <ProductCardSkeleton />)}
         </div>
       }
       <Link to={`/${type}`} className={styles.link}>

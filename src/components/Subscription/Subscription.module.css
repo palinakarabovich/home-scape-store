@@ -11,6 +11,7 @@
 .title{
   font-size: 50px;
   margin: 0;
+  text-align: center;
 }
 
 .text{
@@ -101,14 +102,13 @@
   font-weight: 700;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .subscription{
     padding: 100px 0;
   }
 
   .title{
     font-size: 30px;
-    text-align: center;
     width: 80%;
   }
 

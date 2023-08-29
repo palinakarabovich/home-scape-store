@@ -37,7 +37,14 @@
   color: #000;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1350px) {
+  .products{
+    justify-content: center;
+    gap: 50px;
+  }
+}
+
+@media screen and (max-width: 800px) {
   .preview{
     width: 100%;
     padding-top: 50px;
