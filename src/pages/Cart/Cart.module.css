@@ -217,3 +217,67 @@
   font-size: 12px;
   margin: 0 0 20px 0;
 }
+
+@media screen and (max-width: 800px) {
+  .title{
+    font-size: 30px;
+  }
+
+  .card{
+    font-size: 12px;
+    padding: 15px 10px;
+  }
+
+  .list{
+    width: 95%;
+  }
+
+  .icon{
+    width: 15px;
+    height: 15px;
+    border: none;
+  }
+
+  .mark{
+    font-size: 12px;
+  }
+
+  .image{
+    width: 70px;
+    height: 77px;
+  }
+
+  .text{
+    font-size: 15px;
+  }
+
+  .promo{
+    width: 95%;
+  }
+
+  .promo .text{
+    font-size: 12px;
+  }
+
+  .input{
+    height: 23px;
+    font-size: 12px;
+  }
+
+  .info{
+    width: 95%;
+    padding: 0;
+  }
+
+  .button{
+    font-size: 15px;
+  }
+
+  .buttons .link{
+    font-size: 15px;
+  }
+  
+  .buttons{
+    width: 95%;
+  }
+}

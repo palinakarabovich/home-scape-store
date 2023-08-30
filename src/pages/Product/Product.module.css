@@ -96,8 +96,8 @@ color: #000;
 }
 
 .image{
-  width: 50vw;
-  height: calc(50vw * 1.1);
+  width: 40vw;
+  height: calc(40vw * 1.1);
   object-position: center;
   object-fit: cover;
   border-radius: 5px;
@@ -147,7 +147,7 @@ color: #000;
   justify-content: flex-start;
   gap: 5px;
   overflow-x: scroll;
-  width: 50vw;
+  width: 40vw;
 }
 
 .image_preview{
@@ -164,7 +164,7 @@ color: #000;
 
 .wrapper{
   position: relative;
-  width: 50vw;
+  width: 40vw;
 }
 
 .icon{

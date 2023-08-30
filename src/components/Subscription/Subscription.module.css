@@ -87,7 +87,7 @@
   justify-content: center;
   flex-direction: column;
   gap: 0;
-  width: 40%;
+  width: 50%;
 }
 
 .text + .text{
@@ -100,6 +100,13 @@
 
 .code{
   font-weight: 700;
+}
+
+@media screen and (max-width: 1000px) {
+  .background{
+    padding: 50px 20px;
+    width: 70%;
+  }
 }
 
 @media screen and (max-width: 800px) {

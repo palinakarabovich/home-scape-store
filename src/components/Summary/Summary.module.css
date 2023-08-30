@@ -1,4 +1,4 @@
-.summary{
+.summary {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,54 +6,55 @@
   width: 100%;
   flex-direction: column;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
-.title{
+.title {
   font-size: 30px;
   line-height: 1.7;
   margin: 0;
 }
 
-.cart{
+.cart {
   width: 100%;
 }
 
-.category{
+.category {
   font-size: 15px;
   line-height: 1.7;
   margin: 0;
 }
 
-.information{
+.information {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  width: 70%;
+  width: 90%;
   gap: 50px;
 }
 
-.sum{
+.sum {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 90%;
   margin: 50px 0;
   padding-top: 50px;
   box-sizing: border-box;
   border-top: 2px solid rgba(211, 211, 211, .3);
 }
 
-.payment{
+.payment {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.text{
+.text {
   font-size: 15px;
   margin: 0;
 }
 
-.name{
+.name {
   width: 70%;
   text-align: center;
   font-size: 15px;
@@ -61,13 +62,13 @@
 }
 
 
-.price{
+.price {
   font-size: 15px;
   font-weight: 700;
   width: 10%;
 }
 
-.options{
+.options {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -75,7 +76,7 @@
   justify-self: flex-start;
 }
 
-.purchases{
+.purchases {
   list-style: none;
   padding: 0;
   width: 100%;
@@ -86,7 +87,7 @@
   gap: 30px
 }
 
-.card{
+.card {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -98,7 +99,7 @@
   gap: 20px
 }
 
-.image{
+.image {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -106,16 +107,71 @@
   border-radius: 5px;
 }
 
-.highlight{
+.highlight {
   font-size: 25px;
   font-weight: 700;
   margin: 0;
 }
 
-.highlight + .text{
+.highlight+.text {
   font-size: 25px;
   font-weight: 700;
   margin: 0;
 }
 
+@media screen and (max-width: 800px) {
+  .cart .category {
+    color: #bbb;
+  }
 
+  .category {
+    font-size: 12px;
+  }
+
+  .information {
+    flex-direction: column;
+    width: 95%;
+    gap: 30px
+  }
+
+  .sum {
+    padding-top: 30px;
+    margin-top: 30px;
+    width: 95%;
+  }
+
+  .text {
+    font-size: 12px;
+  }
+
+  .name {
+    font-size: 12px;
+    width: 50%;
+  }
+
+  .price {
+    font-size: 12px;
+    text-align: end;
+    width: 20%;
+  }
+
+  .image {
+    width: 70px;
+    height: 77px;
+  }
+
+  .card {
+    padding: 5px 10px;
+  }
+
+  .options {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .option{
+    width: 35%;
+  }
+}

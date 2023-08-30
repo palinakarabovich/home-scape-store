@@ -85,7 +85,7 @@ const Product = () => {
                 {selectedProduct?.subcategory} &#8594;
               </Link>
               <Link
-                to={`/${selectedProduct?.category}/${selectedProduct?.id}`}
+                to={`/all/${selectedProduct?.id}`}
                 className={styles.link}
               >
                 {selectedProduct?.name}

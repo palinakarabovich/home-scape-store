@@ -86,3 +86,19 @@
   margin-bottom: 5px;
   height: 18px;
 }
+
+@media screen and (max-width: 800px) {
+  .form{
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container{
+    width: 100%;
+  }
+
+  .block+.text{
+    margin-top: 20px;
+  }
+}

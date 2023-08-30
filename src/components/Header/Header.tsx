@@ -13,7 +13,12 @@ const Header = () => {
   const [isCatalogOpen, setCatalogOpen] = React.useState<boolean>(false);
 
   const closeMenu = () => {
-    setMenuOpen(false);
+    if(isCatalogOpen){
+      setCatalogOpen(false);
+    }
+    if(isMenuOpen){
+      setMenuOpen(false);
+    }
   }
 
   return (
