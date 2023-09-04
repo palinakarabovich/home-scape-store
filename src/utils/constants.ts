@@ -17,3 +17,5 @@ export const PRODUCTS_URL = 'https://636d04f791576e19e31ceb50.mockapi.io/product
 export const CATEGORIES_URL = 'https://636d04f791576e19e31ceb50.mockapi.io/categories'
 
 export const PRODUCTS_ON_SALE_URL = 'https://636d04f791576e19e31ceb50.mockapi.io/products?hasDiscount=true'
+
+export const ANIMATION_DURATION = 500;

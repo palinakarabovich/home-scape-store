@@ -12,11 +12,14 @@ const SliderElement: React.FC<ISliderElementProps> = ({ id, images, name, price,
         className={styles.link}
       >
         <div className={styles.container}>
-          <img
-            className={styles.image}
-            src={images[0]}
-            alt={name}
-          />
+          <div className={styles.picture}>
+            <img
+              className={styles.image}
+              src={images[0]}
+              alt={name}
+            />
+            <div className={styles.icon}><p className={styles.discount}>{discount}%</p></div>
+          </div>
           <div className={styles.information}>
             <h3 className={styles.name}>{name} →</h3>
             <div className={styles.price}>

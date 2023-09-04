@@ -5,6 +5,7 @@ import styles from './Slider.module.css'
 import { fetchProductsOnSale } from '../../redux/slices/saleSlice';
 import { IProduct } from '../../@types/types';
 import SliderElement from '../SliderElement/SliderElement';
+import { ANIMATION_DURATION } from '../../utils/constants';
 
 const Slider = () => {
 
@@ -13,7 +14,7 @@ const Slider = () => {
   const [counter, setCounter] = React.useState(0);
   const [elements, setElements] = React.useState<Array<IProduct>>([]);
   const [offset, setOffset] = React.useState<number>(0);
-  const [transitonDuration, setTransitionDuration] = React.useState<number>(300);
+  const [transitonDuration, setTransitionDuration] = React.useState<number>(500);
   const [windowWidth, setWindowWidth] = React.useState<number>(0);
 
   React.useEffect(() => {
@@ -30,7 +31,7 @@ const Slider = () => {
   React.useEffect(() => {
     let interval: NodeJS.Timer;
     if (elements.length > 0) {
-      interval = setInterval(showNext, 3000)
+      interval = setInterval(showNext, ANIMATION_DURATION * 6)
     }
 
     return () => {
@@ -46,16 +47,16 @@ const Slider = () => {
 
   React.useEffect(() => {
     if (counter === elements.length - 1) {
-      setTimeout(() => setTransitionDuration(0), 300);
+      setTimeout(() => setTransitionDuration(0), ANIMATION_DURATION);
     } else {
-      setTransitionDuration(300);
+      setTransitionDuration(ANIMATION_DURATION);
     }
   }, [counter])
 
   React.useEffect(() => {
     if (transitonDuration === 0) {
-      setTimeout(() => setOffset(0), 500)
-      setTimeout(() => setCounter(0), 2000)
+      setTimeout(() => setOffset(0), ANIMATION_DURATION * 2)
+      setTimeout(() => setCounter(0), ANIMATION_DURATION * 3)
     }
   }, [transitonDuration])
 
