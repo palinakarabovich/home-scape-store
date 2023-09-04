@@ -24,28 +24,28 @@ const Summary = () => {
           </ul>
         </div>
         <div className={styles.options}>
-          <div className={styles.address}>
+          <div className={styles.option}>
             <h3 className={styles.category}>Your Address:</h3>
             <p className={styles.text}>{form.form.name.toUpperCase()} {form.form.surname.toUpperCase()}</p>
             <p className={styles.text}>{form.form.street} {form.form.house}</p>
             <p className={styles.text}>{form.form.city} {form.form.postcode}</p>
           </div>
-          <div className={styles.delivery}>
+          <div className={styles.option}>
             <h3 className={styles.category}>Delivery:</h3>
             <p className={styles.text}>{form.delivery.name.toUpperCase()}</p>
             <p className={styles.text}>{form.delivery.duration}</p>
           </div>
-          <div className={styles.contacts}>
+          <div className={styles.option}>
             <h3 className={styles.category}>Contact details:</h3>
             <p className={styles.text}>{form.form.email}</p>
             <p className={styles.text}>{form.form.telephone}</p>
           </div>
-          <div className={styles.address}>
+          <div className={styles.option}>
             <h3 className={styles.category}>Payment method:</h3>
             <p className={styles.text}>{form.payment.name.toUpperCase()}</p>
           </div>
           {
-            cart.isPromo && <div className={styles.address}>
+            cart.isPromo && <div className={styles.option}>
               <h3 className={styles.category}>Promotion:</h3>
               <p className={styles.text}>CODE: {cart.selectedPromo.toLocaleUpperCase()}</p>
             </div>

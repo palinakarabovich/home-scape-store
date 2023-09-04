@@ -30,3 +30,17 @@
 .link:hover {
   color: #000;
 }
+
+@media screen and (max-width: 600px) {
+  .title{
+    font-size: 50px;
+  }
+
+  .warning{
+    font-size: 20px;
+  }
+
+  .link{
+    font-size: 15px;
+  }
+}

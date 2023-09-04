@@ -11,6 +11,7 @@
 .title{
   font-size: 50px;
   margin: 0;
+  text-align: center;
 }
 
 .text{
@@ -86,7 +87,7 @@
   justify-content: center;
   flex-direction: column;
   gap: 0;
-  width: 40%;
+  width: 50%;
 }
 
 .text + .text{
@@ -99,4 +100,31 @@
 
 .code{
   font-weight: 700;
+}
+
+@media screen and (max-width: 1000px) {
+  .background{
+    padding: 50px 20px;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .subscription{
+    padding: 100px 0;
+  }
+
+  .title{
+    font-size: 30px;
+    width: 80%;
+  }
+
+  .text{
+    font-size: 15px;
+    margin-top: 20px;
+  }
+
+  .input{
+    font-size: 15px;
+  }
 }

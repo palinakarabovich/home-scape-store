@@ -9,6 +9,7 @@ import styles from './Main.module.css'
 const MainPage = () => {
 
   const {categories} = useAppSelector((store) => store.categories)
+  
   return (
     <div className={styles.page}>
       <Slider />

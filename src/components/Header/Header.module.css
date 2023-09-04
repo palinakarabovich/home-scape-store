@@ -1,4 +1,4 @@
-.header{
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -7,7 +7,7 @@
   font-weight: 100;
 }
 
-.nav{
+.nav {
   width: 80%;
   display: flex;
   align-items: center;
@@ -17,40 +17,43 @@
   position: relative;
 }
 
-.link{
+.link {
   text-decoration: none;
   cursor: pointer;
   transition: color ease-in-out .3s;
   color: #000;
+  margin: 0;
 }
 
-.link_active{
-  color: rgb(255,41,50);
+.link_active {
+  color: rgb(255, 41, 50);
 }
 
-.link:hover{
+.link:hover {
   color: #bbb;
 }
 
-.cart{
+.cart {
   position: fixed;
   top: 20px;
   right: 20px;
   background-color: #FFF;
   border-radius: 50%;
   z-index: 10;
+  animation: opacityChange ease-in-out .3s;
 }
 
-.icon{
+.icon {
   width: 70px;
   height: 70px;
 }
 
-.quantity{
+.quantity {
   width: 30px;
   height: 30px;
   position: absolute;
-  background-color: rgb(255,41,50);;
+  background-color: rgb(255, 41, 50);
+  ;
   color: #FFF;
   display: flex;
   align-items: center;
@@ -60,7 +63,7 @@
   right: 5px;
 }
 
-.categories{
+.categories {
   background-color: #FFF;
   position: absolute;
   display: none;
@@ -69,7 +72,7 @@
   width: 250px;
   padding: 20px;
   height: 150px;
-  box-shadow: -5px 50px 37px -20px rgba(189,185,189,1);
+  box-shadow: -5px 50px 37px -20px rgba(189, 185, 189, 1);
   border-radius: 5px;
 }
 
@@ -78,11 +81,11 @@
   animation: slideup ease-in-out .3s;
 }
 
-.category:hover > .link {
-  color: rgb(255,41,50);
+.category:hover>.link {
+  color: rgb(255, 41, 50);
 }
 
-.subcategories{
+.subcategories {
   display: none;
   background-color: #fff;
   position: absolute;
@@ -95,10 +98,18 @@
   border-radius: 5px;
 }
 
-.category:hover > .subcategories{
+.category:hover>.subcategories {
   display: block;
   color: #000;
   animation: slideleft ease-in-out .3s;
+}
+
+.burger_menu {
+  display: none;
+}
+
+.nav_mobile {
+  display: none;
 }
 
 @keyframes slideup {
@@ -123,4 +134,142 @@
     opacity: 1;
     transform: none;
   }
+}
+
+@keyframes sliderigth {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+}
+
+@keyframes opacityChange {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    padding: 0;
+  }
+
+  .close_icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  .burger_menu {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    background-color: #FFF;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    height: 65px;
+    box-sizing: border-box;
+  }
+
+  .nav_mobile .link {
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .cart {
+    top: 0;
+    right: 10px;
+    z-index: 10;
+    border-radius: none;
+    background-color: transparent;
+  }
+
+  .icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .menu_icon {
+    padding-left: 20px;
+    cursor: pointer;
+  }
+
+  .background {
+    background-color: rgba(189, 185, 189, .2);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    animation: opacityChange ease-in-out .3s;
+  }
+
+  .nav_mobile {
+    padding: 50px;
+    box-sizing: border-box;
+    width: 70%;
+    height: 100vh;
+    background-color: #FFF;
+    z-index: 11;
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    gap: 10px;
+    animation: slideleft ease-in-out .3s;
+  }
+
+  .nav_mobile_open {
+    display: flex;
+  }
+
+  .submenu {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    animation: slideup ease-in-out .3s;
+  }
+
+  .submenu .link {
+    text-transform: none;
+  }
+
+  .cart_menu_open {
+    position: fixed;
+    top: auto;
+    bottom: 50px;
+    left: 50px;
+    z-index: 10;
+    border-radius: none;
+    background-color: transparent;
+    z-index: 12;
+    animation: slideleft ease-in-out .3s;
+  }
+
+
 }

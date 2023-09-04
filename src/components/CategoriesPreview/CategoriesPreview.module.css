@@ -42,3 +42,29 @@
   font-weight: 700;
   z-index: 2;
 }
+
+@media screen and (max-width: 1000px) {
+  .categories{
+    height: 50vh;
+  }
+
+  .name{
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .categories{
+    flex-wrap: wrap;
+    height: fit-content;
+  }
+
+  .card{
+    width: 100%;
+    height: 20vh;
+  }
+
+  .name{
+    font-size: 30px;
+  }
+}

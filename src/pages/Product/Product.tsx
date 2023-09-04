@@ -7,6 +7,7 @@ import { useAppSelector } from '../../hooks/useAppSelector';
 import { cleanSelectedProduct, fetchProductById } from '../../redux/slices/selectedProductSlice';
 import Loader from '../../components/Loader/Loader';
 import { openModal } from '../../redux/slices/modalSlice';
+import { addItemToCart } from '../../redux/slices/cartSlice';
 
 const Product = () => {
 
@@ -63,6 +64,10 @@ const Product = () => {
     dispatch(openModal());
   }
 
+  const handleAddToCartClick = () => {
+    dispatch(addItemToCart(selectedProduct))
+  }
+
   return (
     <>
       {
@@ -85,7 +90,7 @@ const Product = () => {
                 {selectedProduct?.subcategory} &#8594;
               </Link>
               <Link
-                to={`/${selectedProduct?.category}/${selectedProduct?.id}`}
+                to={`/all/${selectedProduct?.id}`}
                 className={styles.link}
               >
                 {selectedProduct?.name}
@@ -160,6 +165,7 @@ const Product = () => {
                 <button
                   type='button'
                   className={styles.button}
+                  onClick={handleAddToCartClick}
                 >
                   Add to Cart
                 </button>

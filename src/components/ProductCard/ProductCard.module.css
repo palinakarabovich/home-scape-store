@@ -94,3 +94,39 @@
   background-color: rgb(255,41,50);
 }
 
+
+@media screen and (max-width: 1000px) {
+  .card{
+    width: 250px;
+  }
+
+  .image{
+    height: 300px;
+  }
+
+  .title{
+    font-size: 15px;
+  }
+
+  .percentage{
+    font-size: 15px;
+  }
+
+  .description{
+    font-size: 12px;
+  }
+
+  .price{
+    font-size: 15px;
+  }
+
+  .button{
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .image{
+    margin-bottom: 0;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Header.module.css';
-import { cartIcon } from '../../utils/icons';
+import { CLOSE_ICON, MENU_ICON, cartIcon } from '../../utils/icons';
 import { Link, useLocation } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/useAppSelector';
 
@@ -8,7 +8,18 @@ const Header = () => {
 
   const { categories } = useAppSelector((store) => store.categories);
   const { pathname } = useLocation();
-  const { totalItems } = useAppSelector((store) => store.cart)
+  const { totalItems } = useAppSelector((store) => store.cart);
+  const [isMenuOpen, setMenuOpen] = React.useState<boolean>(false);
+  const [isCatalogOpen, setCatalogOpen] = React.useState<boolean>(false);
+
+  const closeMenu = () => {
+    if(isCatalogOpen){
+      setCatalogOpen(false);
+    }
+    if(isMenuOpen){
+      setMenuOpen(false);
+    }
+  }
 
   return (
     <header className={styles.header}>
@@ -16,7 +27,7 @@ const Header = () => {
         <Link to='/sale' className={`${styles.link} ${styles.link_active}`}>SALE</Link>
         <Link className={styles.link} to='/'>Home</Link>
         <div className={styles.catalog}>
-          <a className={styles.link}>Catalog</a>
+          <p className={styles.link}>Catalog</p>
           <ul className={styles.categories}>
             <li
               className={styles.category}
@@ -69,10 +80,11 @@ const Header = () => {
       </nav>
       <Link
         to='/cart'
+        onClick={closeMenu}
       >
         <div
-          className={styles.cart}
-          style={pathname.includes('cart') ? {
+          className={`${isMenuOpen ? styles.cart_menu_open : styles.cart}`}
+          style={pathname.includes('cart') && !isMenuOpen ? {
             display: 'none'
           } : {}}
         >
@@ -86,6 +98,79 @@ const Header = () => {
           }
         </div>
       </Link>
+
+      <div className={styles.burger_menu}>
+        <div
+          className={styles.menu_icon}
+          onClick={() => setMenuOpen(true)}
+        >
+          {MENU_ICON}
+        </div>
+      </div>
+      {
+        isMenuOpen && <div className={styles.background} />
+      }
+      <nav className={`${styles.nav_mobile} ${isMenuOpen ? styles.nav_mobile_open : ''}`}>
+        <div
+          className={styles.close_icon}
+          onClick={closeMenu}
+        >{CLOSE_ICON}</div>
+        <Link
+          to='/sale'
+          className={`${styles.link} ${styles.link_active}`}
+          onClick={closeMenu}
+        >
+          SALE
+        </Link>
+        <Link
+          className={styles.link}
+          to='/'
+          onClick={closeMenu}
+        >
+          Home</Link>
+        <p
+          className={styles.link}
+          onClick={() => setCatalogOpen(!isCatalogOpen)}
+        >
+          Catalog {isCatalogOpen ? `▲` : `▼`}
+        </p>
+        {
+          isCatalogOpen && <div className={styles.submenu}>
+            {categories.map((c) => <Link
+              to={c.url}
+              className={styles.link}
+              onClick={closeMenu}
+            >
+              {c.name}
+              <div className={styles.submenu}>
+                {
+                  c.subcategories.map((sub) => <Link
+                    to={`${c.url}?subcategory=${sub.name.toLowerCase()}`}
+                    className={styles.link}
+                    onClick={closeMenu}
+                  >
+                    {sub.name.toLowerCase()}
+                  </Link>)
+                }
+              </div>
+            </Link>)}
+          </div>
+        }
+        <Link
+          className={styles.link}
+          to='/about'
+          onClick={closeMenu}
+        >
+          About us
+        </Link>
+        <Link
+          to='/contacts'
+          className={styles.link}
+          onClick={closeMenu}
+        >
+          Contacts
+        </Link>
+      </nav>
     </header>
   );
 };

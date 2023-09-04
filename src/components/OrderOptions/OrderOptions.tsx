@@ -6,7 +6,6 @@ import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { makeStepForward, saveDelivery, savePaymentMethod } from '../../redux/slices/formSlice';
 import ButtonsGroup from '../ButtonsGroup/ButtonsGroup';
 import { useAppSelector } from '../../hooks/useAppSelector';
-import { IPayment } from '../../@types/types';
 
 const OrderOptions = () => {
 
@@ -63,6 +62,7 @@ const OrderOptions = () => {
       <p className={styles.error}>{error}</p>
       <div className={styles.options}>
         <div className={styles.group}>
+          <p className={styles.heading}>Payment:</p>
           {
             payments.map((p, index) => <div
               className={`${styles.container} ${paymentState === index ? styles.container_checked : ''}`}
@@ -100,6 +100,7 @@ const OrderOptions = () => {
           }
         </div>
         <div className={styles.group}>
+        <p className={styles.heading}>Delivery:</p>
           {
             deliveries.map((d, index) => <div
               className={`${styles.container} ${deliveryState === index ? styles.container_checked : ''}`}

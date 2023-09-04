@@ -160,7 +160,7 @@ const Form = () => {
                   message: 'Your post code should have at least six symbols'
                 },
                 maxLength: {
-                  value: 6,
+                  value: 7,
                   message: 'Your post code should not have more than six symbols'
                 }
               })}

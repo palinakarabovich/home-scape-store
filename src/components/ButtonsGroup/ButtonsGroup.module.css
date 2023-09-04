@@ -45,3 +45,17 @@
 .button_classic:hover{
   background-color:  rgb(255,41,50);
 }
+
+@media screen and (max-width: 800px) {
+  .group{
+    width: 95%;
+  }
+
+  .button{
+    font-size: 15px;
+  }
+
+  .button_classic{
+    font-size: 15px;
+  }
+}
