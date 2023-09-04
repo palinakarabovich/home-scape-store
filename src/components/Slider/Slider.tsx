@@ -21,13 +21,16 @@ const Slider = () => {
       dispatch(fetchProductsOnSale({
         subcategory: ''
       }))
-    setWindowWidth(window.screen.width)
+    setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
   }, []);
+
 
   React.useEffect(() => {
     let interval: NodeJS.Timer;
     if (elements.length > 0) {
-      interval = setInterval(showNext, 5000)
+      interval = setInterval(showNext, 3000)
     }
 
     return () => {
@@ -59,6 +62,10 @@ const Slider = () => {
   const showNext = () => {
     setOffset((pr) => pr - windowWidth);
     setCounter((pr) => pr + 1);
+  }
+
+  const updateSize = () => {
+    setWindowWidth(window.innerWidth);
   }
 
   return (
