@@ -7,6 +7,7 @@ import { useAppSelector } from '../../hooks/useAppSelector';
 import { cleanSelectedProduct, fetchProductById } from '../../redux/slices/selectedProductSlice';
 import Loader from '../../components/Loader/Loader';
 import { openModal } from '../../redux/slices/modalSlice';
+import { addItemToCart } from '../../redux/slices/cartSlice';
 
 const Product = () => {
 
@@ -61,6 +62,10 @@ const Product = () => {
   const openImage = () => {
     navigate(`/all/${selectedProduct.id}/${selectedImage}`);
     dispatch(openModal());
+  }
+
+  const handleAddToCartClick = () => {
+    dispatch(addItemToCart(selectedProduct))
   }
 
   return (
@@ -160,6 +165,7 @@ const Product = () => {
                 <button
                   type='button'
                   className={styles.button}
+                  onClick={handleAddToCartClick}
                 >
                   Add to Cart
                 </button>

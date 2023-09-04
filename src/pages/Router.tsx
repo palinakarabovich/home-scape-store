@@ -55,9 +55,9 @@ const Router = () => {
             ))
             }
             <Route path={`all/:productId`} element={<Product />}>
-            <Route path={`:imageId`} element={<ModalOverlay>
-              <ProductImage />
-            </ModalOverlay>} />
+              <Route path={`:imageId`} element={<ModalOverlay>
+                <ProductImage />
+              </ModalOverlay>} />
             </Route>
             <Route path='/about' element={<About />} />
             <Route path='/sale' element={<Sale />} />

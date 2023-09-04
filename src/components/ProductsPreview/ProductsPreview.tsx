@@ -27,7 +27,6 @@ const ProductsPreview: React.FC<IProductPreviewProps> = ({ type }) => {
 
   const updateSize = () => {
     setSize([window.innerWidth, window.innerHeight]);
-    console.log(size)
   }
 
   return (
@@ -51,8 +50,8 @@ const ProductsPreview: React.FC<IProductPreviewProps> = ({ type }) => {
         : <div className={styles.products}>
           {
             size[0] > 1350 ?
-              [...new Array(3)].map((el) => <ProductCardSkeleton />)
-              : [...new Array(2)].map((el) => <ProductCardSkeleton />)}
+              [...new Array(3)].map((_, index) => <ProductCardSkeleton key={index}/>)
+              : [...new Array(2)].map((_, index) => <ProductCardSkeleton key={index}/>)}
         </div>
       }
       <Link to={`/${type}`} className={styles.link}>
