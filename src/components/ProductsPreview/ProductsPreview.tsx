@@ -54,7 +54,7 @@ const ProductsPreview: React.FC<IProductPreviewProps> = ({ type }) => {
               : [...new Array(2)].map((_, index) => <ProductCardSkeleton key={index}/>)}
         </div>
       }
-      <Link to={`/${type}`} className={styles.link}>
+      <Link to={`/home-scape-store/${type}`} className={styles.link}>
         More products &#8594;
       </Link>
     </section>

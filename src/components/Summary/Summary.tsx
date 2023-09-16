@@ -55,11 +55,11 @@ const Summary = () => {
       <div className={styles.sum}>
         <div className={styles.payment}>
           <p className={styles.text}>Delivery costs:</p>
-          <p className={styles.text}>{form.delivery.price === 0 ? 'FREE' : form.delivery.price}</p>
+          <p className={styles.text}>{form.delivery.price === 0 ? 'FREE' : form.delivery.price} €</p>
         </div>
         <div className={styles.payment}>
           <p className={styles.highlight}>Total to pay:</p>
-          <p className={styles.text}>{cart.sum + form.delivery.price}</p>
+          <p className={styles.text}>{cart.sum + form.delivery.price} €</p>
         </div>
       </div>
       <ButtonsGroup />

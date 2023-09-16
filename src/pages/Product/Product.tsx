@@ -60,7 +60,7 @@ const Product = () => {
   }
 
   const openImage = () => {
-    navigate(`/all/${selectedProduct.id}/${selectedImage}`);
+    navigate(`/home-scape-store/all/${selectedProduct.id}/${selectedImage}`);
     dispatch(openModal());
   }
 
@@ -78,19 +78,19 @@ const Product = () => {
           : <section className={styles.product}>
             <div className={styles.links}>
               <Link
-                to={`/${selectedProduct?.category}`}
+                to={`/home-scape-store/${selectedProduct?.category}`}
                 className={styles.link}
               >
                 {selectedProduct?.category} &#8594;
               </Link>
               <Link
-                to={`/${selectedProduct?.category}?subcategory=${selectedProduct.subcategory}`}
+                to={`/home-scape-store/${selectedProduct?.category}?subcategory=${selectedProduct.subcategory}`}
                 className={styles.link}
               >
                 {selectedProduct?.subcategory} &#8594;
               </Link>
               <Link
-                to={`/all/${selectedProduct?.id}`}
+                to={`/home-scape-store/all/${selectedProduct?.id}`}
                 className={styles.link}
               >
                 {selectedProduct?.name}

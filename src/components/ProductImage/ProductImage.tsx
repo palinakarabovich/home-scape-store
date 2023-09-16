@@ -18,7 +18,7 @@ const ProductImage = () => {
   }, [])
 
   React.useEffect(() => {
-    navigate(`/all/${selectedProduct.id}/${currentImageIndex}`)
+    navigate(`/home-scape-store/all/${selectedProduct.id}/${currentImageIndex}`)
   }, [currentImageIndex])
 
   React.useEffect(() => {

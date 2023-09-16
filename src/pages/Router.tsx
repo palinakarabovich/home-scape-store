@@ -40,7 +40,7 @@ const Router = () => {
         loading.success && !loading.status
           ? <Routes>
             <Route
-              path='/'
+              path='/home-scape-store/'
               element={<MainPage />} />
             {categoriesRoutes.map((r) => (
               <Route
@@ -54,17 +54,17 @@ const Router = () => {
               </Route>
             ))
             }
-            <Route path={`all/:productId`} element={<Product />}>
+            <Route path={`/home-scape-store/all/:productId`} element={<Product />}>
               <Route path={`:imageId`} element={<ModalOverlay>
                 <ProductImage />
               </ModalOverlay>} />
             </Route>
-            <Route path='/about' element={<About />} />
-            <Route path='/sale' element={<Sale />} />
-            <Route path='/contacts' element={<Contacts />} />
-            <Route path='/cart' element={<Cart />} />
-            <Route path='/checkout' element={<Checkout />} />
-            <Route path='/thank-for-you-order' element={<ThankYou />} />
+            <Route path='/home-scape-store/about' element={<About />} />
+            <Route path='/home-scape-store/sale' element={<Sale />} />
+            <Route path='/home-scape-store/contacts' element={<Contacts />} />
+            <Route path='/home-scape-store/cart' element={<Cart />} />
+            <Route path='/home-scape-store/checkout' element={<Checkout />} />
+            <Route path='/home-scape-store/thank-for-you-order' element={<ThankYou />} />
             <Route path='*' element={<PageNotFound />} />
           </Routes>
           : <div style={loaderStyles} >

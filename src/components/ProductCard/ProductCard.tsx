@@ -18,7 +18,7 @@ const ProductCard: React.FC<IProduct> = ( product ) => {
   return (
     <article className={styles.card}>
       <Link
-        to={`/all/${product.id}`}
+        to={`/home-scape-store/all/${product.id}`}
         className={styles.link}
       >
         {product.hasDiscount &&

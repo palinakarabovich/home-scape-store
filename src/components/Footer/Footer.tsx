@@ -6,19 +6,19 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.links}>
         <Link
-          to='/about'
+          to='/home-scape-store/about'
           className={styles.link}
         >
           About us
         </Link>
         <Link
-          to='/all'
+          to='/home-scape-store/all'
           className={styles.link}
         >
           Catalog
         </Link>
         <Link
-          to='/contacts'
+          to='/home-scape-store/contacts'
           className={styles.link}
         >
           Contacts

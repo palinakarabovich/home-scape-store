@@ -7,7 +7,7 @@ const PageNotFound = () => {
       <h2 className={styles.title}>404</h2>
       <p className={styles.warning}>Page does not exist</p>
       <Link
-        to='/all'
+        to='/home-scape-store/all'
         className={styles.link}
       >
         Back to Catalog &#8594;

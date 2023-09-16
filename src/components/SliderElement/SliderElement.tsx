@@ -8,7 +8,7 @@ const SliderElement: React.FC<ISliderElementProps> = ({ id, images, name, price,
   return (
     <article className={styles.element}>
       <Link
-        to={`/all/${id}`}
+        to={`/home-scape-store/all/${id}`}
         className={styles.link}
       >
         <div className={styles.container}>

@@ -78,7 +78,7 @@ const CategoriesList: React.FC<ICategoriesListProps> = ({ categories }) => {
         subcategories.length !== 0 ?
           <>
             <Link
-              to={`/all`}
+              to={`/home-scape-store/all`}
               className={styles.link}
               key={'all'}
             >

@@ -24,8 +24,8 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <Link to='/sale' className={`${styles.link} ${styles.link_active}`}>SALE</Link>
-        <Link className={styles.link} to='/'>Home</Link>
+        <Link to='/home-scape-store/sale' className={`${styles.link} ${styles.link_active}`}>SALE</Link>
+        <Link className={styles.link} to='/home-scape-store/'>Home</Link>
         <div className={styles.catalog}>
           <p className={styles.link}>Catalog</p>
           <ul className={styles.categories}>
@@ -33,7 +33,7 @@ const Header = () => {
               className={styles.category}
               key={'all'}
             >
-              <Link to='/all' className={styles.link}>ALL</Link>
+              <Link to='/home-scape-store/all' className={styles.link}>ALL</Link>
             </li>
             {categories.map((c) => (
               <li
@@ -67,19 +67,19 @@ const Header = () => {
         </div>
         <Link
           className={styles.link}
-          to='/about'
+          to='/home-scape-store/about'
         >
           About us
         </Link>
         <Link
-          to='/contacts'
+          to='/home-scape-store/contacts'
           className={styles.link}
         >
           Contacts
         </Link>
       </nav>
       <Link
-        to='/cart'
+        to='/home-scape-store/cart'
         onClick={closeMenu}
       >
         <div
@@ -116,7 +116,7 @@ const Header = () => {
           onClick={closeMenu}
         >{CLOSE_ICON}</div>
         <Link
-          to='/sale'
+          to='/home-scape-store/sale'
           className={`${styles.link} ${styles.link_active}`}
           onClick={closeMenu}
         >
@@ -124,7 +124,7 @@ const Header = () => {
         </Link>
         <Link
           className={styles.link}
-          to='/'
+          to='/home-scape-store/'
           onClick={closeMenu}
         >
           Home</Link>
@@ -158,13 +158,13 @@ const Header = () => {
         }
         <Link
           className={styles.link}
-          to='/about'
+          to='/home-scape-store/about'
           onClick={closeMenu}
         >
           About us
         </Link>
         <Link
-          to='/contacts'
+          to='/home-scape-store/contacts'
           className={styles.link}
           onClick={closeMenu}
         >

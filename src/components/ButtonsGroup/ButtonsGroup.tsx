@@ -21,7 +21,7 @@ const ButtonsGroup: React.FC<IButtonsGroupProps> = ({ handleStepForward }) => {
   }
 
   const onPay = () => {
-    navigate('/thank-for-you-order');
+    navigate('/home-scape-store/thank-for-you-order');
     dispatch(cleanCart());
     dispatch(resetForm());
   }
@@ -35,7 +35,7 @@ const ButtonsGroup: React.FC<IButtonsGroupProps> = ({ handleStepForward }) => {
           onClick={handleStepBack}
         > &#8592; previous step</button>
           : <Link
-            to='/cart'
+            to='/home-scape-store/cart'
             className={styles.button}>&#8592; back to cart</Link>
       }
       {

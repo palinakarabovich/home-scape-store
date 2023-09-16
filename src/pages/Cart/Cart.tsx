@@ -30,7 +30,7 @@ const Cart = () => {
 
   const onCheckout = () => {
     dispatch(startCheckout());
-    navigate('/checkout')
+    navigate('/home-scape-store/checkout')
   }
 
   React.useEffect(() => {
@@ -67,7 +67,7 @@ const Cart = () => {
                 key={product.item.id}
               >
                 <Link
-                  to={`/all/${product.item.id}`}
+                  to={`/home-scape-store/all/${product.item.id}`}
                   className={styles.link}
                 >
                   <img src={product.item.images[0]}
@@ -76,7 +76,7 @@ const Cart = () => {
                   />
                 </Link>
                 <Link
-                  to={`/all/${product.item.id}`}
+                  to={`/home-scape-store/all/${product.item.id}`}
                   className={styles.link}
                 >
                   <p className={styles.name}>{product.item.name}</p>
@@ -120,7 +120,7 @@ const Cart = () => {
             </div>
             <div className={styles.buttons}>
               <Link
-                to={`/all`}
+                to={`/home-scape-store/all`}
                 className={styles.link}
               >
                 Back to Catalog
@@ -133,7 +133,7 @@ const Cart = () => {
           : <section className={styles.cart_empty}>
             <h2 className={styles.title}>There is nothing here yet.</h2>
             <Link
-              to={`/all`}
+              to={`/home-scape-store/all`}
               className={styles.link}
             >
               &larr; Back to Catalog
