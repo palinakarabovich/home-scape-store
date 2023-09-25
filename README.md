@@ -5,17 +5,17 @@ Furniture and accessories store with categories, cart and checkout. You can filt
 Visit the app on [GITHUB-PAGES](https://palinakarabovich.github.io/home-scape-store/).
 
 ## Features
-- The app offers categories for easy navigation.
+- The app offers categories for easy navigation.       
   ![](categories.gif)
-- Users can add items to their shopping cart and apply promo codes.
+- Users can add items to their shopping cart and apply promo codes.         
   ![](cart.gif)
-- Checkout form has validation.
+- Checkout form has validation.          
   ![](form.gif)
-- The main page features a custom slider that showcases products currently on sale, catching the user's attention.
+- The main page features a custom slider that showcases products currently on sale, catching the user's attention.        
   ![](slider.gif)
-- Users can interact with product cards. The product card page includes breadcrumbs, helping users to navigate.
+- Users can interact with product cards. The product card page includes breadcrumbs, helping users to navigate.       
   ![](product-card.gif)
-- The app is designed to be responsive, ensuring an optimal user experience across various devices and screen sizes.
+- The app is designed to be responsive, ensuring an optimal user experience across various devices and screen sizes.        
   ![](mobile.gif)
 
 ## Technologies
