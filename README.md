@@ -7,6 +7,9 @@ Visit the app on [GITHUB-PAGES](https://palinakarabovich.github.io/home-scape-st
 ## Features
 - The app offers categories for easy navigation.       
   ![](categories.gif)
+  /
+  /
+  /
 - Users can add items to their shopping cart and apply promo codes.         
   ![](cart.gif)
 - Checkout form has validation.          
